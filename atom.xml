@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-11-05T00:45:07.789Z</updated>
+  <updated>2022-11-05T11:31:31.954Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>网站迁移公告</title>
+    <link href="http://example.com/2022/11/05/%E7%BD%91%E7%AB%99%E8%BF%81%E7%A7%BB%E5%85%AC%E5%91%8A/"/>
+    <id>http://example.com/2022/11/05/%E7%BD%91%E7%AB%99%E8%BF%81%E7%A7%BB%E5%85%AC%E5%91%8A/</id>
+    <published>2022-11-05T11:26:33.000Z</published>
+    <updated>2022-11-05T11:31:31.954Z</updated>
+    
+    <content type="html"><![CDATA[<p>各位读者大家好，这里发布一个网站公告。</p><p>原网站 <a href="http://xingyublog.unaux.com/">xingyublog.unaux.com</a> 已不再支持，此网站已迁移至这里(<a href="http://blog.xyxw.cf/">blog.xyxw.cf</a>)。</p><p>望周知，谢谢！</p><p>2022.10.15</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;各位读者大家好，这里发布一个网站公告。&lt;/p&gt;
+&lt;p&gt;原网站 &lt;a href=&quot;http://xingyublog.unaux.com/&quot;&gt;xingyublog.unaux.com&lt;/a&gt; 已不再支持，此网站已迁移至这里(&lt;a href=&quot;http://blog.xyxw.</summary>
+      
+    
+    
+    
+    <category term="网站公告" scheme="http://example.com/categories/%E7%BD%91%E7%AB%99%E5%85%AC%E5%91%8A/"/>
+    
+    
+    <category term="公告" scheme="http://example.com/tags/%E5%85%AC%E5%91%8A/"/>
+    
+    <category term="网站" scheme="http://example.com/tags/%E7%BD%91%E7%AB%99/"/>
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
