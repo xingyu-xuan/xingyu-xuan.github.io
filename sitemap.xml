@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://example.com/categories/index.html</loc>
+    <loc>http://blog.xyxw.cf/categories/index.html</loc>
     
     <lastmod>2022-11-05</lastmod>
     
@@ -11,7 +11,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/tags/index.html</loc>
+    <loc>http://blog.xyxw.cf/tags/index.html</loc>
     
     <lastmod>2022-11-05</lastmod>
     
@@ -20,7 +20,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/2022/11/05/%E7%BD%91%E7%AB%99%E8%BF%81%E7%A7%BB%E5%85%AC%E5%91%8A/</loc>
+    <loc>http://blog.xyxw.cf/2022/11/05/%E7%BD%91%E7%AB%99%E8%BF%81%E7%A7%BB%E5%85%AC%E5%91%8A/</loc>
     
     <lastmod>2022-11-05</lastmod>
     
@@ -29,7 +29,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/2022/11/05/hello-world/</loc>
+    <loc>http://blog.xyxw.cf/2022/11/05/hello-world/</loc>
     
     <lastmod>2022-11-05</lastmod>
     
@@ -39,7 +39,7 @@
   
 
   <url>
-    <loc>http://example.com/</loc>
+    <loc>http://blog.xyxw.cf/</loc>
     <lastmod>2022-11-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
@@ -47,14 +47,14 @@
 
   
   <url>
-    <loc>http://example.com/tags/%E5%85%AC%E5%91%8A/</loc>
+    <loc>http://blog.xyxw.cf/tags/%E5%85%AC%E5%91%8A/</loc>
     <lastmod>2022-11-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://example.com/tags/%E7%BD%91%E7%AB%99/</loc>
+    <loc>http://blog.xyxw.cf/tags/%E7%BD%91%E7%AB%99/</loc>
     <lastmod>2022-11-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -63,7 +63,7 @@
 
   
   <url>
-    <loc>http://example.com/categories/%E7%BD%91%E7%AB%99%E5%85%AC%E5%91%8A/</loc>
+    <loc>http://blog.xyxw.cf/categories/%E7%BD%91%E7%AB%99%E5%85%AC%E5%91%8A/</loc>
     <lastmod>2022-11-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
