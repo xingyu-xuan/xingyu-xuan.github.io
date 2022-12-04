@@ -1,4 +1,6 @@
 https://blog.xyxw.cf/uplog/index.html
+https://blog.xyxw.cf/music/index.html
+https://blog.xyxw.cf/effect/index.html
 https://blog.xyxw.cf/2022/10/
 https://blog.xyxw.cf/mboard/index.html
 https://blog.xyxw.cf/2022/9/
@@ -16,16 +18,16 @@ https://blog.xyxw.cf/
 https://blog.xyxw.cf/tags/%E5%AD%A6%E4%B9%A0/
 https://blog.xyxw.cf/tags/%E4%BD%9C%E4%B8%9A/
 https://blog.xyxw.cf/tags/%E4%BD%9C%E4%B8%9A%E5%A4%9A/
-https://blog.xyxw.cf/tags/%E8%80%83%E8%AF%95/
 https://blog.xyxw.cf/tags/%E5%85%AC%E5%91%8A/
 https://blog.xyxw.cf/tags/%E7%BD%91%E7%AB%99/
+https://blog.xyxw.cf/tags/%E8%80%83%E8%AF%95/
+https://blog.xyxw.cf/tags/%E6%95%88%E7%8E%87/
 https://blog.xyxw.cf/tags/%E8%81%9A%E4%BC%9A/
 https://blog.xyxw.cf/tags/%E5%9B%BD%E5%BA%86/
 https://blog.xyxw.cf/tags/%E4%B8%87%E8%B1%A1%E5%9F%8E/
-https://blog.xyxw.cf/tags/%E6%95%88%E7%8E%87/
-https://blog.xyxw.cf/tags/%E8%87%AA%E4%BC%A0/
 https://blog.xyxw.cf/tags/%E4%BA%BA%E6%80%A7/
 https://blog.xyxw.cf/tags/%E8%87%AA%E7%A7%81/
+https://blog.xyxw.cf/tags/%E8%87%AA%E4%BC%A0/
 https://blog.xyxw.cf/tags/%E5%86%B7%E6%BC%A0/
 https://blog.xyxw.cf/categories/%E5%85%B3%E4%BA%8E%E6%88%91%E7%9A%84%E5%AD%A6%E4%B9%A0/
 https://blog.xyxw.cf/categories/%E7%BD%91%E7%AB%99%E5%85%AC%E5%91%8A/
