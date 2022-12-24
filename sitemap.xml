@@ -180,6 +180,13 @@
   </url>
   
   <url>
+    <loc>https://blog.xyxw.cf/tags/%E8%80%83%E8%AF%95/</loc>
+    <lastmod>2022-12-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.xyxw.cf/tags/%E4%BD%9C%E4%B8%9A/</loc>
     <lastmod>2022-12-24</lastmod>
     <changefreq>weekly</changefreq>
@@ -202,13 +209,6 @@
   
   <url>
     <loc>https://blog.xyxw.cf/tags/%E9%AA%82%E4%BA%BA/</loc>
-    <lastmod>2022-12-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.xyxw.cf/tags/%E8%80%83%E8%AF%95/</loc>
     <lastmod>2022-12-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
