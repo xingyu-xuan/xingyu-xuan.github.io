@@ -200,7 +200,7 @@ toDevtools();</script><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compati
   const init = () => {
     twikoo.init(Object.assign({
       el: '#twikoo-wrap',
-      envId: 'https://twikoo.xyxw.cf',
+      envId: 'https://xyxwv.eu.org',
       region: '',
       onCommentLoaded: function () {
         btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
@@ -212,7 +212,7 @@ toDevtools();</script><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compati
     const countELement = document.getElementById('twikoo-count')
     if(!countELement) return
     twikoo.getCommentsCount({
-      envId: 'https://twikoo.xyxw.cf',
+      envId: 'https://xyxwv.eu.org',
       region: '',
       urls: [window.location.pathname],
       includeReply: false
@@ -233,7 +233,7 @@ toDevtools();</script><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compati
       setTimeout(runFn,0)
       return
     } 
-    getScript('https://cdn.bootcdn.net/ajax/libs/twikoo/1.6.11/twikoo.all.min.js').then(runFn)
+    getScript('https://cdn.bootcdn.net/ajax/libs/twikoo/1.6.16/twikoo.all.min.js').then(runFn)
   }
 
   if ('Twikoo' === 'Twikoo' || !false) {
