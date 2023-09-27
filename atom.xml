@@ -3,11 +3,11 @@
   <title>This is xingyu.</title>
   
   <subtitle>要成为光，因为有怕黑的人</subtitle>
-  <link href="https://blog.xyxw.cf/atom.xml" rel="self"/>
+  <link href="https://xyxw.eu.org/atom.xml" rel="self"/>
   
-  <link href="https://blog.xyxw.cf/"/>
-  <updated>2023-04-16T05:14:17.872Z</updated>
-  <id>https://blog.xyxw.cf/</id>
+  <link href="https://xyxw.eu.org/"/>
+  <updated>2023-08-28T15:00:04.708Z</updated>
+  <id>https://xyxw.eu.org/</id>
   
   <author>
     <name>Xingyu</name>
@@ -17,9 +17,107 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>SP22343-NORMA2-Norma</title>
+    <link href="https://xyxw.eu.org/2023/SP22343-NORMA2-Norma/"/>
+    <id>https://xyxw.eu.org/2023/SP22343-NORMA2-Norma/</id>
+    <published>2023-08-28T14:58:45.000Z</published>
+    <updated>2023-08-28T15:00:04.708Z</updated>
+    
+    <content type="html"><![CDATA[<p>双倍经验：<a href="http://www.luogu.com.cn/problem/P6406">$P6406$</a></p><h2 id="题目描述">题目描述</h2><p>给定一个序列$ a_i,\cdots,a_n $，求：</p><p>$$ \sum_{i=1}^{n} \sum_{j=i}^{n} (j-i+1) \min(a_i,a_{i+1},\cdots,a_j) \max(a_i,a_{i+1},\cdots,a_j) $$</p><h2 id="分析">分析</h2><p>根据 $ n \leq 5\times10^5 $，$O(n^3)$ 的暴力肯定要炸，于是考虑分治，即把序列分成左区间与右区间，分别计算以下三种情况：</p><ol><li class="lvl-3"><p>区间左右端点均落在左区间。</p></li><li class="lvl-3"><p>区间左右端点均落在右区间。</p></li><li class="lvl-3"><p>区间左端点落在左区间，区间右端点落在右区间。</p></li></ol><p>其中第 $1$，$2$ 种情况用分治递归解决就行了，于是来着重解决如何求第 $3$ 种情况的问题。</p><p>首先，暴力枚举求第 $3$ 种情况的时间复杂度显然是 $O(n^2)$，总时间复杂度是 $O(n^2 \log n)$，肯定是过不了的。于是可以想一些关于区间的优化：</p><p>线段树？好吧，这个蒟蒻作者不会线段树维护区间最大最小值。</p><p>单调队列？虽然使用单调队列可以不用分治，但是由于区间长度是不定的，这也需要 $O(n^2)$ 的时间复杂度，还是过不了。</p><p>前缀和？前缀最小最大值的前缀和？这能算吗…好像真可以…</p><p>于是用分治+前缀和预处理，$O(n \log n)$ 的时间复杂度就能过掉此题。</p><h2 id="具体实现">具体实现</h2><p><s>（为什么要推这种式子啊）</s></p><p>如果在左区间内定一个下标 $ i $，对于每一个 $ i $，记 $ mi $ 为在 $ a_i,\cdots ,a_{mid} $ 内的最小值下标，$ mx $ 为该区间内最大值下标。显而易见，当 $ i=mid,mid-1,\cdots,1 $ 时，$ mi $ 与 $ mx $ 也是严格单调递减的。</p><p>同样的，记 $ mi_{to} $ 为右区间内最后一个大于 $ a[mi] $ 的下标，$ mx_{to} $ 为右区间内最后一个小于 $ a[mx] $ 的下标。同样显而易见的是，当 $ i=mid,mid-1,\cdots,1 $ 时，$ mi_{to} $ 与 $ mx_{to} $ 也是严格单调递增的。</p><p>所以，我们可以将第三种情况对于每一个 $ i $ 分 $ 3 $ 个部分来求：</p><h3 id="第一个部分：-mid-1-min-mi-to-mx-to">第一个部分：$ [mid+1,\min(mi_{to},mx_{to})) $</h3><p>这一部分最大值为 $ mx $，最小值为 $ mi $，直接等差数列求和就行了，这里就不赘述了。</p><h3 id="第二个部分：-min-mi-to-mx-to-max-mi-to-mx-to">第二个部分：$ [\min(mi_{to},mx_{to}),\max(mi_{to},mx_{to})) $</h3><p>这一部分 $ mi_{to} $ 与 $ mx_{to} $ 只有一个可用，这个时候就要用前缀和了。假定 $ mi_{to} &gt; mx_{to} $，最小值可用 $ mi_{to} $，最大值就只能用右区间的前缀最大值的前缀和。但是由于 $ i $ 不定，又不能针对于每一个 $ i $ 都算一遍（不然时间复杂度就爆炸了），所以前缀和要算两次，具体如下：</p><p>设 $ sum1_k $ 是 $ \max(a_{mid},\cdots,a_k) $ 的前缀和，$ sum2_k $ 是 $ (k + 1) \times \max(a_{mid},\cdots,a_k) $ 的前缀和。</p><p>由于区间长度为 $ k-i+1 $，所以可知，这一部分的贡献是 $ sum2[\max(mi_{to},mx_{to})]-sum2[\min(mi_{to},mx_{to})]-i\times(sum1[\max(mi_{to},mx_{to})]-sum1[\min(mi_{to},mx_{to})]) $。</p><p><s>（作者推式子好累，但打式子更累）</s></p><p>$ mi_{to} &lt; mx_{to} $ 是一样的。</p><h3 id="第三个部分：-max-mi-to-mx-to-r">第三个部分：$ [\max(mi_{to},mx_{to}),r] $</h3><p>只要第二部分搞出来了那这一部分就没什么问题了，不过是求 $ \max(a_{mid},\cdots,a_k) \times \min(a_{mid},\cdots,a_k) $ 和 $ (k+1)\times\max(a_{mid},\cdots,a_k) \times \min(a_{mid},\cdots,a_k)  $ 的前缀和就行了。</p><p>这样这道题就搞出来了。</p><p>什么？你说取模爆炸了？来试试 __int128 吧！（见代码）</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> MAXN=<span class="number">5e5</span>+<span class="number">5</span>;</span><br><span class="line"><span class="type">const</span> __int128 mod=<span class="number">1e9</span>;</span><br><span class="line"><span class="type">long</span> <span class="type">long</span> a[MAXN];</span><br><span class="line">__int128 summin1[MAXN],summin2[MAXN],summax1[MAXN],summax2[MAXN],summul1[MAXN],summul2[MAXN];</span><br><span class="line"><span class="function">__int128 <span class="title">fz</span><span class="params">(<span class="type">int</span> l,<span class="type">int</span> r)</span></span>&#123;</span><br><span class="line"><span class="keyword">if</span>(l==r)<span class="keyword">return</span> a[l]*a[l];</span><br><span class="line"><span class="keyword">if</span>(l+<span class="number">1</span>==r)<span class="keyword">return</span> (a[l]*a[l]+a[r]*a[r]+<span class="number">2</span>*<span class="built_in">min</span>(a[l],a[r])*<span class="built_in">max</span>(a[l],a[r]));</span><br><span class="line">__int128 mid=(l+r)/<span class="number">2</span>;</span><br><span class="line">__int128 ans=(<span class="built_in">fz</span>(l,mid)+<span class="built_in">fz</span>(mid+<span class="number">1</span>,r));</span><br><span class="line">__int128 nowmin=a[mid+<span class="number">1</span>],nowmax=a[mid+<span class="number">1</span>];</span><br><span class="line">summin1[mid]=summin2[mid]=summax1[mid]=summax2[mid]=summul1[mid]=summul2[mid]=<span class="number">0</span>;</span><br><span class="line">summin1[mid+<span class="number">1</span>]=a[mid+<span class="number">1</span>];</span><br><span class="line">summin2[mid+<span class="number">1</span>]=a[mid+<span class="number">1</span>]*(mid+<span class="number">2</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=mid+<span class="number">2</span>;i&lt;=r;i++)&#123;</span><br><span class="line"><span class="keyword">if</span>(a[i]&lt;nowmin)nowmin=a[i];</span><br><span class="line">summin1[i]=summin1[i<span class="number">-1</span>]+nowmin;</span><br><span class="line">summin2[i]=(i+<span class="number">1</span>)*nowmin+summin2[i<span class="number">-1</span>];</span><br><span class="line">&#125;</span><br><span class="line">summax1[mid+<span class="number">1</span>]=a[mid+<span class="number">1</span>];</span><br><span class="line">summax2[mid+<span class="number">1</span>]=a[mid+<span class="number">1</span>]*(mid+<span class="number">2</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=mid+<span class="number">2</span>;i&lt;=r;i++)&#123;</span><br><span class="line"><span class="keyword">if</span>(a[i]&gt;nowmax)nowmax=a[i];</span><br><span class="line">summax1[i]=summax1[i<span class="number">-1</span>]+nowmax;</span><br><span class="line">summax2[i]=(i+<span class="number">1</span>)*nowmax+summax2[i<span class="number">-1</span>];</span><br><span class="line">&#125;</span><br><span class="line">nowmin=a[mid+<span class="number">1</span>],nowmax=a[mid+<span class="number">1</span>];</span><br><span class="line">summul1[mid+<span class="number">1</span>]=a[mid+<span class="number">1</span>]*a[mid+<span class="number">1</span>];</span><br><span class="line">summul2[mid+<span class="number">1</span>]=a[mid+<span class="number">1</span>]*a[mid+<span class="number">1</span>]*(mid+<span class="number">2</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=mid+<span class="number">2</span>;i&lt;=r;i++)&#123;</span><br><span class="line"><span class="keyword">if</span>(a[i]&lt;nowmin)nowmin=a[i];</span><br><span class="line"><span class="keyword">if</span>(a[i]&gt;nowmax)nowmax=a[i];</span><br><span class="line">summul1[i]=summul1[i<span class="number">-1</span>]+nowmax*nowmin;</span><br><span class="line">summul2[i]=(i+<span class="number">1</span>)*nowmax*nowmin+summul2[i<span class="number">-1</span>];</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> mi=mid,mx=mid,mi_to=mid,mx_to=mid;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> k=mid;k&gt;=l;k--)&#123;</span><br><span class="line"><span class="keyword">if</span>(a[k]&lt;a[mi])mi=k;</span><br><span class="line"><span class="keyword">if</span>(a[k]&gt;a[mx])mx=k;</span><br><span class="line"><span class="keyword">while</span>(a[mi_to]&gt;=a[mi]&amp;&amp;mi_to&lt;=r)mi_to++;</span><br><span class="line"><span class="keyword">if</span>(mi_to&gt;mid)mi_to--;</span><br><span class="line"><span class="keyword">while</span>(a[mx_to]&lt;=a[mx]&amp;&amp;mx_to&lt;=r)mx_to++;</span><br><span class="line"><span class="keyword">if</span>(mx_to&gt;mid)mx_to--;</span><br><span class="line">ans+=(((<span class="built_in">min</span>(mi_to,mx_to)-k+<span class="number">1</span>+mid-k+<span class="number">2</span>)*(<span class="built_in">min</span>(mi_to,mx_to)-mid))*a[mi]*a[mx])/<span class="number">2</span>;</span><br><span class="line"><span class="keyword">if</span>(mi_to&gt;mx_to)ans+=(summax2[mi_to]-summax2[mx_to]-k*(summax1[mi_to]-summax1[mx_to]))*a[mi];</span><br><span class="line"><span class="keyword">else</span> ans+=(summin2[mx_to]-summin2[mi_to]-k*(summin1[mx_to]-summin1[mi_to]))*a[mx];</span><br><span class="line">ans+=(summul2[r]-summul2[<span class="built_in">max</span>(mx_to,mi_to)]-k*(summul1[r]-summul1[<span class="built_in">max</span>(mx_to,mi_to)]));</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line">cin&gt;&gt;n;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)cin&gt;&gt;a[i];</span><br><span class="line">cout&lt;&lt;(<span class="type">long</span> <span class="type">long</span>)((<span class="built_in">fz</span>(<span class="number">1</span>,n))%mod);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;双倍经验：&lt;a href=&quot;http://www.luogu.com.cn/problem/P6406&quot;&gt;$P6406$&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;题目描述&quot;&gt;题目描述&lt;/h2&gt;
+&lt;p&gt;给定一个序列$ a_i,\cdots,a_n $，求：&lt;/p&gt;
+&lt;p&gt;$$ \su</summary>
+      
+    
+    
+    
+    
+    <category term="题解" scheme="https://xyxw.eu.org/tags/%E9%A2%98%E8%A7%A3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>P2533 [AHOI2012] 信号塔</title>
+    <link href="https://xyxw.eu.org/2023/P2533-AHOI2012-%E4%BF%A1%E5%8F%B7%E5%A1%94/"/>
+    <id>https://xyxw.eu.org/2023/P2533-AHOI2012-%E4%BF%A1%E5%8F%B7%E5%A1%94/</id>
+    <published>2023-08-28T14:44:52.000Z</published>
+    <updated>2023-08-28T14:57:23.548Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="题目描述">题目描述</h3><p>给定 $ n $ 个点 $(x_i,y_i)$，求半径最小的圆使该圆能覆盖所有的点。</p><p>所以这是一道最小覆盖圆的板子题，双倍经验：<a href="https://www.luogu.com.cn/problem/P1742"><strong>P1742</strong></a></p><h3 id="实现">实现</h3><p>使用随机增量法：</p><p>很容易我们能证明，若第 $ i $ 个点不在前 $ i-1 $ 个点的最小覆盖圆上，那么第 $ i $ 个点在前 $ i $ 个点的最小覆盖圆上。</p><p>这个时候，就要求前 $ i $ 个点的最小覆盖圆了。在初始化时，把圆心设为第 $ i $ 个点的坐标，半径设为 $ 0 $，强制使这个点在圆上。然后枚举就行了，如果当前这个点在当前这个圆外时就去求第 $ i $ 个点与该点在圆上时的最小覆盖圆，这个时候就要枚举除这两个点以外的第三个点（三点定圆）。枚举结束后就能求出前 $ i $ 个点的最小覆盖圆。</p><p>注意循环不用从 $ 1 $ 到 $ n $ 全部枚一遍，这样会造成重复枚举。</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">    <span class="keyword">if</span>(!<span class="built_in">is_po_in_circle</span>(a[i],c))&#123;</span><br><span class="line">        c=<span class="built_in">get_circ</span>(<span class="number">0</span>,a[i]);</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=i<span class="number">-1</span>;j++)</span><br><span class="line">            <span class="keyword">if</span>(!<span class="built_in">is_po_in_circle</span>(a[j],c))&#123;</span><br><span class="line">                c.r=<span class="built_in">dist</span>(a[i],a[j])/<span class="number">2</span>;</span><br><span class="line">                c.o.x=(a[i].x+a[j].x)/<span class="number">2</span>;</span><br><span class="line">                c.o.y=(a[i].y+a[j].y)/<span class="number">2</span>;</span><br><span class="line">                <span class="keyword">for</span>(<span class="type">int</span> k=<span class="number">1</span>;k&lt;=j<span class="number">-1</span>;k++)</span><br><span class="line">                    <span class="keyword">if</span>(!<span class="built_in">is_po_in_circle</span>(a[k],c))</span><br><span class="line">                        c=<span class="built_in">get_circle_from_po</span>(a[i],a[j],a[k]);</span><br><span class="line">            &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure><p>现在最大的问题来了：两点加直径定圆很简单，但是三点定圆有点难度，所以开始推式子：</p><p>假设两点 $(x_1,y_1)$ 与 $(x_2,y_2)$，易得它们的中点是 $(\frac{x_1+x_2}{2},\frac{y_1+y_2}{2})$，经过它们的直线的斜率为 $\frac{y_1-y_2}{x_1-x_2}$。</p><p>因为三角形外接圆圆心（即外心）在在三条线段的中垂线上，故可知刚刚两个点的中垂线斜率为 $-\frac{x_1-x_2}{y_1-y_2}$。再代入刚刚的中点，把式子化为 $ Ax+By+C=0$ 的形式，可知中垂线解析式为：</p><p>$$ (x_1-x_2)x+(y_1-y_2)y+\frac{y_2^2-y_1^2+x_2^2-x_1^2}{2}=0 $$</p><p>其他两条直线是一样的，联立求交点即可，这样圆心和半径都求出来了。</p><h3 id="复杂度证明">复杂度证明</h3><p>这个看似时间复杂度是 $ O(n^3) $ 的做法实际上时间复杂度为 $O(n)$，证明如下：</p><p>由于所有点中，每次最多有 $3$ 个点来确定最小覆盖圆，所以每次只有最多 $\frac{3}{n}$ 的概率选到参与确定最小覆盖圆的点，即每个循环向下调用的概率不超过 $\frac{3}{n}$。</p><p>首先最后一层循环的复杂度是 $O(j)$ 的，向上可以推得第二层的时间复杂度为：</p><p>$$O(i)+\sum_{j=1}^i \frac{3}{i}O(j)$$</p><p>因为要经过随机排序，通过上面的式子容易得到这层的时间复杂度是 $O(i)$，那第一层的时间复杂度也显而易见是 $O(n)$ 了。</p><p>AC 代码：</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">po</span>&#123;</span><br><span class="line">    <span class="type">double</span> x,y;</span><br><span class="line">&#125;; </span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">vec</span>&#123;</span><br><span class="line">    <span class="type">double</span> A,B,C;<span class="comment">//Ax+By+C=0;</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">circ</span>&#123;</span><br><span class="line">    po o;</span><br><span class="line">    <span class="type">double</span> r;</span><br><span class="line">&#125;;</span><br><span class="line">po a[<span class="number">2000001</span>];</span><br><span class="line">circ c;</span><br><span class="line"><span class="function">vec <span class="title">get_vec_from_po</span><span class="params">(po p,po q)</span></span>&#123;</span><br><span class="line">    vec v;</span><br><span class="line">    v.A=p.y-q.y;</span><br><span class="line">    v.B=q.x-p.x;</span><br><span class="line">    v.C=p.x*q.y-q.x*p.y;</span><br><span class="line">    <span class="keyword">return</span> v;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">po <span class="title">get_po_from_vec</span><span class="params">(vec c,vec d)</span></span>&#123;</span><br><span class="line">    po pp;</span><br><span class="line">    pp.x=((<span class="type">double</span>)(-d.B*c.C+c.B*d.C)/(<span class="type">double</span>)(-c.B*d.A+c.A*d.B));</span><br><span class="line">    pp.y=((<span class="type">double</span>)(-d.A*c.C+c.A*d.C)/(<span class="type">double</span>)(c.B*d.A-c.A*d.B));</span><br><span class="line">    <span class="keyword">return</span> pp;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">dist</span><span class="params">(po a,po b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">sqrt</span>((a.x-b.x)*(a.x-b.x)+(a.y-b.y)*(a.y-b.y));</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">is_po_in_circle</span><span class="params">(po test,circ d)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> d.r&gt;=<span class="built_in">sqrt</span>((test.x-d.o.x)*(test.x-d.o.x)+(test.y-d.o.y)*(test.y-d.o.y));</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">circ <span class="title">get_circle_from_po</span><span class="params">(po A,po B,po C)</span></span>&#123;</span><br><span class="line">    vec buf1,buf2;</span><br><span class="line">    buf1.A=<span class="number">2</span>*(A.x-B.x),buf1.B=<span class="number">2</span>*(A.y-B.y),buf1.C=B.x*B.x-A.x*A.x+B.y*B.y-A.y*A.y;</span><br><span class="line">    buf2.A=<span class="number">2</span>*(B.x-C.x),buf2.B=<span class="number">2</span>*(B.y-C.y),buf2.C=C.x*C.x-B.x*B.x+C.y*C.y-B.y*B.y;</span><br><span class="line">    circ temp;</span><br><span class="line">    temp.o=<span class="built_in">get_po_from_vec</span>(buf1,buf2);</span><br><span class="line">    temp.r=<span class="built_in">dist</span>(temp.o,A);</span><br><span class="line">    <span class="keyword">return</span> temp;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">circ <span class="title">get_circ</span><span class="params">(<span class="type">double</span> r,po o)</span></span>&#123;</span><br><span class="line">    circ temp_;</span><br><span class="line">    temp_.r=r;</span><br><span class="line">    temp_.o=o;</span><br><span class="line">    <span class="keyword">return</span> temp_;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">        cin&gt;&gt;a[i].x&gt;&gt;a[i].y;</span><br><span class="line">    <span class="built_in">random_shuffle</span>(a+<span class="number">1</span>, a+n+<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">        <span class="keyword">if</span>(!<span class="built_in">is_po_in_circle</span>(a[i],c))&#123;</span><br><span class="line">            c=<span class="built_in">get_circ</span>(<span class="number">0</span>,a[i]);</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=i<span class="number">-1</span>;j++)</span><br><span class="line">                <span class="keyword">if</span>(!<span class="built_in">is_po_in_circle</span>(a[j],c))&#123;</span><br><span class="line">                    c.r=<span class="built_in">dist</span>(a[i],a[j])/<span class="number">2</span>;</span><br><span class="line">                    c.o.x=(a[i].x+a[j].x)/<span class="number">2</span>;</span><br><span class="line">                    c.o.y=(a[i].y+a[j].y)/<span class="number">2</span>;</span><br><span class="line">                    <span class="keyword">for</span>(<span class="type">int</span> k=<span class="number">1</span>;k&lt;=j<span class="number">-1</span>;k++)</span><br><span class="line">                        <span class="keyword">if</span>(!<span class="built_in">is_po_in_circle</span>(a[k],c))</span><br><span class="line">                            c=<span class="built_in">get_circle_from_po</span>(a[i],a[j],a[k]);</span><br><span class="line">                &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    cout&lt;&lt;fixed&lt;&lt;<span class="built_in">setprecision</span>(<span class="number">2</span>)&lt;&lt;c.o.x&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;c.o.y&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">    cout&lt;&lt;fixed&lt;&lt;<span class="built_in">setprecision</span>(<span class="number">2</span>)&lt;&lt;c.r&lt;&lt;endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;题目描述&quot;&gt;题目描述&lt;/h3&gt;
+&lt;p&gt;给定 $ n $ 个点 $(x_i,y_i)$，求半径最小的圆使该圆能覆盖所有的点。&lt;/p&gt;
+&lt;p&gt;所以这是一道最小覆盖圆的板子题，双倍经验：&lt;a href=&quot;https://www.luogu.com.cn/problem/</summary>
+      
+    
+    
+    
+    
+    <category term="题解" scheme="https://xyxw.eu.org/tags/%E9%A2%98%E8%A7%A3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Tree-Summing-UVA112</title>
+    <link href="https://xyxw.eu.org/2023/Tree-Summing-UVA112/"/>
+    <id>https://xyxw.eu.org/2023/Tree-Summing-UVA112/</id>
+    <published>2023-08-28T14:42:09.000Z</published>
+    <updated>2023-08-28T14:42:57.158Z</updated>
+    
+    <content type="html"><![CDATA[<p>这题主要算法最多<strong>普及-</strong>，输入的难度个人认为高达<strong>省选</strong>！（调输入的时间占做这题时间的九成！！！）</p><h3 id="题目描述">题目描述</h3><p>给出一棵整数的二叉树，请写一个程序判定是否存在这样一条从树根到树叶的路，路上的结点的总和等于一个特定的整数。</p><p>这道题极其坑人的的点在判断两个儿子是否都为叶节点和输入上。</p><h3 id="0x01-树的遍历">0x01 树的遍历</h3><p>这里推荐使用在线算法，因为写起来简单。</p><p>很容易发现在每次读入数时，我们就到达了一个叶节点或一颗子树的根节点，这个时候可以加和，等到该节点的子树遍历完之后像自己的父亲，也就是上一个节点回溯。回溯的过程很简单，就是把当前的加和减去现在节点的值。</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//sign 是负数的标志</span></span><br><span class="line">cin&gt;&gt;po;</span><br><span class="line">sum+=po*sign;</span><br><span class="line"><span class="built_in">dfs</span>(dep+<span class="number">1</span>);</span><br><span class="line"><span class="built_in">dfs</span>(dep+<span class="number">1</span>);</span><br><span class="line">sum-=po*sign;</span><br></pre></td></tr></table></figure><p>那么，知道了如何加和，那如何比较结果呢？</p><p>对于这道题，显然是在叶子节点处比较结果。那么，如何判断是否为叶子结点呢？</p><h3 id="0x02-判断是否为叶子节点">0x02 判断是否为叶子节点</h3><p>根据题意，叶子节点的格式是这样的：<code>(num()())</code>，要想判断叶子节点，就要判断两个空树。</p><p>方法一：如果读入第一个 <code>(</code> 后在探测下几个字符（探测的用法下一个部分要讲），如果为 <code>)()</code> 那就成功判断一个叶节点。</p><p>但是 C++ 自带的探测函数指针不后移，如果后移的话像 <code>()(...)</code> 这样的数据就会过度输入，对后面的遍历产生影响。</p><p>方法二：只探测每个树第一个 <code>(</code> 后是否为 <code>)</code>，如果是，就返回 $1$，如果一个节点的左右子树都是空树，那么才进行现在的加和与给定的数的比较。当然，探测到 <code>)</code> 后要指针后移，避免在下次遍历的开始读到右括号从而影响遍历。</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(cin.<span class="built_in">peek</span>()==<span class="string">&#x27;)&#x27;</span>)&#123;<span class="comment">//探测下一个字符是否为&#x27;)&#x27;</span></span><br><span class="line">cin.<span class="built_in">ignore</span>();<span class="comment">//指针后移</span></span><br><span class="line"><span class="keyword">return</span> (sum==n);<span class="comment">//可以返回 1，也可以直接返回比较结果</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//...</span></span><br><span class="line">temp+=<span class="built_in">dfs</span>(dep+<span class="number">1</span>);</span><br><span class="line">temp+=<span class="built_in">dfs</span>(dep+<span class="number">1</span>);</span><br><span class="line"><span class="keyword">if</span>(temp==<span class="number">2</span>)&#123;<span class="comment">//如果在上面返回 1，这里就要进行比较</span></span><br><span class="line">flag=<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>那么这样的话，我们的递归函数的返回值就是该节点是否为子树，需要一个新的变量来存比较的结果。</p><p>主要算法都讲完了，但先别急，因为这道题的输入可以让你爆炸！！！</p><h3 id="0x03-输入">0x03 输入</h3><p>我推荐的方法是用探测和指针后移的方式来实现左右括号的读入与判断。</p><p>先介绍函数，探测函数是 <code>cin.peek()</code>，这个函数返回该指针的下一个字符。后移函数是 <code>cin.ignore()</code>，这个函数使当前输入的指针后移一位。读入的时候就从后移后的下一个字符开始读入，后移后指针所指的字符不读入。</p><p>首先，我们要实现对于空格和换行的跳过：</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">space</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="keyword">while</span>(cin.<span class="built_in">peek</span>()&lt;=<span class="number">32</span>)cin.<span class="built_in">ignore</span>();<span class="comment">//&#x27; &#x27;,&#x27;\n&#x27;,&#x27;\r&#x27;的ASCII值都小于等于32</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>然后我们就在想要探测并跳过左右括号或者负号时，先去空格等字符，然后读入，判断，跳过就行了（但是很容易写错！！！）。</p><p>完整 AC 代码：</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">char</span> k,kk;</span><br><span class="line"><span class="type">long</span> <span class="type">long</span> n;</span><br><span class="line"><span class="type">long</span> <span class="type">long</span> sum=<span class="number">0</span>;</span><br><span class="line"><span class="type">bool</span> flag=<span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">space</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="keyword">while</span>(cin.<span class="built_in">peek</span>()&lt;=<span class="number">32</span>)cin.<span class="built_in">ignore</span>();</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">dfs</span><span class="params">(<span class="type">long</span> <span class="type">long</span> dep)</span></span>&#123;</span><br><span class="line"><span class="type">long</span> <span class="type">long</span> po;</span><br><span class="line"><span class="type">long</span> <span class="type">long</span> temp=<span class="number">0</span>;</span><br><span class="line"><span class="built_in">space</span>();</span><br><span class="line">cin.<span class="built_in">ignore</span>();</span><br><span class="line"><span class="built_in">space</span>();</span><br><span class="line"><span class="keyword">if</span>(cin.<span class="built_in">peek</span>()==<span class="string">&#x27;)&#x27;</span>)&#123;</span><br><span class="line">cin.<span class="built_in">ignore</span>();</span><br><span class="line"><span class="keyword">return</span> (sum==n);</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> sign=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">if</span>(cin.<span class="built_in">peek</span>()==<span class="string">&#x27;-&#x27;</span>)&#123;</span><br><span class="line">sign=<span class="number">-1</span>;</span><br><span class="line">cin.<span class="built_in">ignore</span>();</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">space</span>();</span><br><span class="line">cin&gt;&gt;po;</span><br><span class="line">sum+=po*sign;</span><br><span class="line">temp+=<span class="built_in">dfs</span>(dep+<span class="number">1</span>);</span><br><span class="line">temp+=<span class="built_in">dfs</span>(dep+<span class="number">1</span>);</span><br><span class="line"><span class="keyword">if</span>(temp==<span class="number">2</span>)&#123;</span><br><span class="line">flag=<span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line">sum-=po*sign;</span><br><span class="line"><span class="built_in">space</span>();</span><br><span class="line">cin.<span class="built_in">ignore</span>();</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line">string s;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="type">int</span> u=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">while</span>(cin&gt;&gt;n)&#123;</span><br><span class="line">flag=<span class="number">0</span>;</span><br><span class="line"><span class="built_in">dfs</span>(<span class="number">1</span>);</span><br><span class="line">s=(flag)?<span class="string">&quot;yes&quot;</span>:<span class="string">&quot;no&quot;</span>;</span><br><span class="line">cout&lt;&lt;s&lt;&lt;endl;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;这题主要算法最多&lt;strong&gt;普及-&lt;/strong&gt;，输入的难度个人认为高达&lt;strong&gt;省选&lt;/strong&gt;！（调输入的时间占做这题时间的九成！！！）&lt;/p&gt;
+&lt;h3 id=&quot;题目描述&quot;&gt;题目描述&lt;/h3&gt;
+&lt;p&gt;给出一棵整数的二叉树，请写一个程序判定是否存在这样</summary>
+      
+    
+    
+    
+    
+    <category term="题解" scheme="https://xyxw.eu.org/tags/%E9%A2%98%E8%A7%A3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>P8734 [蓝桥杯 2020 国 A] 奇偶覆盖</title>
+    <link href="https://xyxw.eu.org/2023/P8734-%E8%93%9D%E6%A1%A5%E6%9D%AF-2020-%E5%9B%BD-A-%E5%A5%87%E5%81%B6%E8%A6%86%E7%9B%96/"/>
+    <id>https://xyxw.eu.org/2023/P8734-%E8%93%9D%E6%A1%A5%E6%9D%AF-2020-%E5%9B%BD-A-%E5%A5%87%E5%81%B6%E8%A6%86%E7%9B%96/</id>
+    <published>2023-08-28T14:28:58.000Z</published>
+    <updated>2023-08-28T14:45:50.570Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="题目描述">题目描述</h3><p>在平面内有一些矩形，它们的两条边都平行于坐标轴。</p><p>我们称一个点被某个矩形覆盖，是指这个点在矩形的内部或者边界上。</p><p>请问，被奇数个矩形覆盖和被偶数（$\leq2$）个矩形覆盖的点的面积分别是多少?</p><h3 id="实现">实现</h3><p>显然这题是一道扫描线，不会扫描线的同学先去做<a href="https://www.luogu.com.cn/problem/P5490">这道题</a>。本题解就不讲扫描线是如何实现的了。</p><p>由于要奇偶分开输出，我们的线段树就不能像下面的代码一样只维护一个区间长度了。</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">pushup</span><span class="params">(<span class="type">int</span> now)</span></span>&#123;</span><br><span class="line"><span class="keyword">if</span>(tree[now].num)&#123;</span><br><span class="line">tree[now].len=x[tree[now].r+<span class="number">1</span>]-x[tree[now].l];</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span>&#123;</span><br><span class="line">tree[now].len=tree[now*<span class="number">2</span>].len+tree[now*<span class="number">2</span>+<span class="number">1</span>].len;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>很显然，上面这份代码的 <code>len</code> 要被拆成两个，一个用来存奇数覆盖，一个用来存偶数覆盖。由于要保证奇加上偶的面积等于总面积并，我们需要修改原来的上推函数。</p><p>显然，这要分成 $3$ 种情况：</p><ul class="lvl-0"><li class="lvl-2"><p>没有覆盖：奇偶都只需要从左右儿子加和就行了。</p></li><li class="lvl-2"><p>覆盖的矩形数为奇数：此时当前的奇数长度更多要依赖区间长度计算，于是先算偶数长度。根据偶等于奇（当前覆盖矩形数）加奇（左右儿子），偶数长度是左右儿子奇数长度之和。又由于满足奇偶加和为总面积并，所以奇数长度就等于区间长度减刚刚才算的偶数长度。</p></li><li class="lvl-2"><p>覆盖的矩形数为偶数：根据奇等于偶加奇，奇数长度是左右儿子奇数长度之和。同上面的分析，偶数长度是区间长度减刚刚算的奇数长度。</p></li></ul><p>在扫描线的基础上这样修改完上推函数，这道题也就做完了。</p><p>提示：记得把空间开大一点！</p><p>AC 代码：</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">int</span> x[<span class="number">2000001</span>];</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">segtree</span>&#123;</span><br><span class="line"><span class="type">int</span> l;</span><br><span class="line"><span class="type">int</span> r;</span><br><span class="line"><span class="type">long</span> <span class="type">long</span> len1,len2,num;</span><br><span class="line">&#125;;</span><br><span class="line">segtree tree[<span class="number">4000050</span>];</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">defline</span>&#123;</span><br><span class="line"><span class="type">int</span> xl,xr,y;</span><br><span class="line"><span class="type">long</span> <span class="type">long</span> num;</span><br><span class="line">&#125;;</span><br><span class="line">defline line[<span class="number">4000050</span>];</span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">cmp</span><span class="params">(defline a,defline b)</span></span>&#123;</span><br><span class="line"><span class="keyword">return</span> a.y&lt;b.y;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">build</span><span class="params">(<span class="type">int</span> l,<span class="type">int</span> r,<span class="type">int</span> now)</span></span>&#123;</span><br><span class="line">tree[now].l=l,tree[now].r=r;</span><br><span class="line">tree[now].len1=<span class="number">0</span>;</span><br><span class="line">tree[now].len2=<span class="number">0</span>;</span><br><span class="line">tree[now].num=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">if</span>(l==r)<span class="keyword">return</span>;</span><br><span class="line"><span class="type">int</span> mid=(l+r)/<span class="number">2</span>;</span><br><span class="line"><span class="built_in">build</span>(l,mid,now*<span class="number">2</span>),<span class="built_in">build</span>(mid+<span class="number">1</span>,r,now*<span class="number">2</span>+<span class="number">1</span>);</span><br><span class="line"><span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">pushup</span><span class="params">(<span class="type">int</span> now)</span></span>&#123;</span><br><span class="line"><span class="keyword">if</span>(tree[now].num==<span class="number">0</span>)&#123;</span><br><span class="line">tree[now].len1=tree[now*<span class="number">2</span>].len1+tree[now*<span class="number">2</span>+<span class="number">1</span>].len1;</span><br><span class="line">tree[now].len2=tree[now*<span class="number">2</span>].len2+tree[now*<span class="number">2</span>+<span class="number">1</span>].len2;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(tree[now].num%<span class="number">2</span>)&#123;</span><br><span class="line">tree[now].len2=tree[now*<span class="number">2</span>].len1+tree[now*<span class="number">2</span>+<span class="number">1</span>].len1;</span><br><span class="line">tree[now].len1=x[tree[now].r+<span class="number">1</span>]-x[tree[now].l]-tree[now].len2;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span>&#123;</span><br><span class="line">tree[now].len1=tree[now*<span class="number">2</span>].len1+tree[now*<span class="number">2</span>+<span class="number">1</span>].len1;</span><br><span class="line">tree[now].len2=x[tree[now].r+<span class="number">1</span>]-x[tree[now].l]-tree[now].len1;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">update</span><span class="params">(<span class="type">int</span> l,<span class="type">int</span> r,<span class="type">int</span> now,<span class="type">int</span> num)</span></span>&#123;</span><br><span class="line"><span class="keyword">if</span>(x[tree[now].r+<span class="number">1</span>]&lt;=l||x[tree[now].l]&gt;=r)<span class="keyword">return</span>;</span><br><span class="line"><span class="keyword">if</span>(x[tree[now].r+<span class="number">1</span>]&lt;=r&amp;&amp;x[tree[now].l]&gt;=l)&#123;</span><br><span class="line">tree[now].num+=num;</span><br><span class="line"><span class="built_in">pushup</span>(now);</span><br><span class="line"><span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">update</span>(l,r,now*<span class="number">2</span>,num);</span><br><span class="line"><span class="built_in">update</span>(l,r,now*<span class="number">2</span>+<span class="number">1</span>,num);</span><br><span class="line"><span class="built_in">pushup</span>(now);</span><br><span class="line"><span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="type">int</span> n,xlt,xrt,yup,ydown;</span><br><span class="line">ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>);</span><br><span class="line">cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">cin&gt;&gt;n;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">cin&gt;&gt;xlt&gt;&gt;ydown&gt;&gt;xrt&gt;&gt;yup;</span><br><span class="line">x[i*<span class="number">2</span><span class="number">-1</span>]=xlt;</span><br><span class="line">x[i*<span class="number">2</span>]=xrt;</span><br><span class="line">line[i*<span class="number">2</span><span class="number">-1</span>].xl=xlt;</span><br><span class="line">line[i*<span class="number">2</span><span class="number">-1</span>].xr=xrt;</span><br><span class="line">line[i*<span class="number">2</span><span class="number">-1</span>].y=ydown;</span><br><span class="line">line[i*<span class="number">2</span><span class="number">-1</span>].num=<span class="number">1</span>;</span><br><span class="line">line[i*<span class="number">2</span>].xl=xlt;</span><br><span class="line">line[i*<span class="number">2</span>].xr=xrt;</span><br><span class="line">line[i*<span class="number">2</span>].y=yup;</span><br><span class="line">line[i*<span class="number">2</span>].num=<span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line">n*=<span class="number">2</span>;</span><br><span class="line"><span class="built_in">sort</span>(x+<span class="number">1</span>,x+n+<span class="number">1</span>);</span><br><span class="line"><span class="built_in">sort</span>(line+<span class="number">1</span>,line+n+<span class="number">1</span>,cmp);</span><br><span class="line"><span class="type">int</span> tot=<span class="built_in">unique</span>(x+<span class="number">1</span>,x+n+<span class="number">1</span>)-x<span class="number">-1</span>;</span><br><span class="line"><span class="built_in">build</span>(<span class="number">1</span>,tot<span class="number">-1</span>,<span class="number">1</span>);</span><br><span class="line"><span class="type">long</span> <span class="type">long</span> ans1=<span class="number">0</span>,ans2=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;n;i++)&#123;</span><br><span class="line"><span class="built_in">update</span>(line[i].xl,line[i].xr,<span class="number">1</span>,line[i].num);</span><br><span class="line">ans1+=tree[<span class="number">1</span>].len1*(line[i+<span class="number">1</span>].y-line[i].y);</span><br><span class="line">ans2+=tree[<span class="number">1</span>].len2*(line[i+<span class="number">1</span>].y-line[i].y);</span><br><span class="line">&#125;</span><br><span class="line">cout&lt;&lt;ans1&lt;&lt;endl&lt;&lt;ans2&lt;&lt;endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;题目描述&quot;&gt;题目描述&lt;/h3&gt;
+&lt;p&gt;在平面内有一些矩形，它们的两条边都平行于坐标轴。&lt;/p&gt;
+&lt;p&gt;我们称一个点被某个矩形覆盖，是指这个点在矩形的内部或者边界上。&lt;/p&gt;
+&lt;p&gt;请问，被奇数个矩形覆盖和被偶数（$\leq2$）个矩形覆盖的点的面积分别是多少?&lt;/</summary>
+      
+    
+    
+    
+    
+    <category term="题解" scheme="https://xyxw.eu.org/tags/%E9%A2%98%E8%A7%A3/"/>
+    
+  </entry>
+  
+  <entry>
     <title>四月天</title>
-    <link href="https://blog.xyxw.cf/2023/17/"/>
-    <id>https://blog.xyxw.cf/2023/17/</id>
+    <link href="https://xyxw.eu.org/2023/17/"/>
+    <id>https://xyxw.eu.org/2023/17/</id>
     <published>2023-04-13T15:40:00.000Z</published>
     <updated>2023-04-16T05:14:17.872Z</updated>
     
@@ -30,19 +128,19 @@
     
     
     
-    <category term="关于我的琐碎小事" scheme="https://blog.xyxw.cf/categories/%E5%85%B3%E4%BA%8E%E6%88%91%E7%9A%84%E7%90%90%E7%A2%8E%E5%B0%8F%E4%BA%8B/"/>
+    <category term="关于我的琐碎小事" scheme="https://xyxw.eu.org/categories/%E5%85%B3%E4%BA%8E%E6%88%91%E7%9A%84%E7%90%90%E7%A2%8E%E5%B0%8F%E4%BA%8B/"/>
     
     
-    <category term="学习" scheme="https://blog.xyxw.cf/tags/%E5%AD%A6%E4%B9%A0/"/>
+    <category term="学习" scheme="https://xyxw.eu.org/tags/%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="随笔" scheme="https://blog.xyxw.cf/tags/%E9%9A%8F%E7%AC%94/"/>
+    <category term="随笔" scheme="https://xyxw.eu.org/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
   <entry>
     <title>步入初三下的感想</title>
-    <link href="https://blog.xyxw.cf/2023/16/"/>
-    <id>https://blog.xyxw.cf/2023/16/</id>
+    <link href="https://xyxw.eu.org/2023/16/"/>
+    <id>https://xyxw.eu.org/2023/16/</id>
     <published>2023-02-12T03:47:45.000Z</published>
     <updated>2023-02-12T14:47:38.681Z</updated>
     
@@ -60,17 +158,17 @@
     
     
     
-    <category term="关于我的琐碎小事" scheme="https://blog.xyxw.cf/categories/%E5%85%B3%E4%BA%8E%E6%88%91%E7%9A%84%E7%90%90%E7%A2%8E%E5%B0%8F%E4%BA%8B/"/>
+    <category term="关于我的琐碎小事" scheme="https://xyxw.eu.org/categories/%E5%85%B3%E4%BA%8E%E6%88%91%E7%9A%84%E7%90%90%E7%A2%8E%E5%B0%8F%E4%BA%8B/"/>
     
     
-    <category term="学习" scheme="https://blog.xyxw.cf/tags/%E5%AD%A6%E4%B9%A0/"/>
+    <category term="学习" scheme="https://xyxw.eu.org/tags/%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
   <entry>
     <title>RGB常用颜色对照表</title>
-    <link href="https://blog.xyxw.cf/2023/15/"/>
-    <id>https://blog.xyxw.cf/2023/15/</id>
+    <link href="https://xyxw.eu.org/2023/15/"/>
+    <id>https://xyxw.eu.org/2023/15/</id>
     <published>2023-02-01T00:51:21.000Z</published>
     <updated>2023-02-01T03:00:58.018Z</updated>
     
@@ -81,17 +179,17 @@
     
     
     
-    <category term="html" scheme="https://blog.xyxw.cf/categories/html/"/>
+    <category term="html" scheme="https://xyxw.eu.org/categories/html/"/>
     
     
-    <category term="网站" scheme="https://blog.xyxw.cf/tags/%E7%BD%91%E7%AB%99/"/>
+    <category term="网站" scheme="https://xyxw.eu.org/tags/%E7%BD%91%E7%AB%99/"/>
     
   </entry>
   
   <entry>
     <title>更新说明&amp;预告</title>
-    <link href="https://blog.xyxw.cf/2023/14/"/>
-    <id>https://blog.xyxw.cf/2023/14/</id>
+    <link href="https://xyxw.eu.org/2023/14/"/>
+    <id>https://xyxw.eu.org/2023/14/</id>
     <published>2023-01-28T14:59:52.000Z</published>
     <updated>2023-04-16T02:46:06.243Z</updated>
     
@@ -112,15 +210,15 @@
     
     
     
-    <category term="网站公告" scheme="https://blog.xyxw.cf/categories/%E7%BD%91%E7%AB%99%E5%85%AC%E5%91%8A/"/>
+    <category term="网站公告" scheme="https://xyxw.eu.org/categories/%E7%BD%91%E7%AB%99%E5%85%AC%E5%91%8A/"/>
     
     
   </entry>
   
   <entry>
     <title>随笔</title>
-    <link href="https://blog.xyxw.cf/2022/13/"/>
-    <id>https://blog.xyxw.cf/2022/13/</id>
+    <link href="https://xyxw.eu.org/2022/13/"/>
+    <id>https://xyxw.eu.org/2022/13/</id>
     <published>2022-12-31T00:36:41.000Z</published>
     <updated>2023-04-02T04:50:57.618Z</updated>
     
@@ -131,17 +229,17 @@
     
     
     
-    <category term="关于我的琐碎小事" scheme="https://blog.xyxw.cf/categories/%E5%85%B3%E4%BA%8E%E6%88%91%E7%9A%84%E7%90%90%E7%A2%8E%E5%B0%8F%E4%BA%8B/"/>
+    <category term="关于我的琐碎小事" scheme="https://xyxw.eu.org/categories/%E5%85%B3%E4%BA%8E%E6%88%91%E7%9A%84%E7%90%90%E7%A2%8E%E5%B0%8F%E4%BA%8B/"/>
     
     
-    <category term="随笔" scheme="https://blog.xyxw.cf/tags/%E9%9A%8F%E7%AC%94/"/>
+    <category term="随笔" scheme="https://xyxw.eu.org/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
   <entry>
     <title>关于我对异性感情的思考</title>
-    <link href="https://blog.xyxw.cf/2022/12/"/>
-    <id>https://blog.xyxw.cf/2022/12/</id>
+    <link href="https://xyxw.eu.org/2022/12/"/>
+    <id>https://xyxw.eu.org/2022/12/</id>
     <published>2022-12-24T00:44:44.000Z</published>
     <updated>2023-01-31T01:26:18.162Z</updated>
     
@@ -152,17 +250,17 @@
     
     
     
-    <category term="我对一些事物的思考" scheme="https://blog.xyxw.cf/categories/%E6%88%91%E5%AF%B9%E4%B8%80%E4%BA%9B%E4%BA%8B%E7%89%A9%E7%9A%84%E6%80%9D%E8%80%83/"/>
+    <category term="我对一些事物的思考" scheme="https://xyxw.eu.org/categories/%E6%88%91%E5%AF%B9%E4%B8%80%E4%BA%9B%E4%BA%8B%E7%89%A9%E7%9A%84%E6%80%9D%E8%80%83/"/>
     
     
-    <category term="感情" scheme="https://blog.xyxw.cf/tags/%E6%84%9F%E6%83%85/"/>
+    <category term="感情" scheme="https://xyxw.eu.org/tags/%E6%84%9F%E6%83%85/"/>
     
   </entry>
   
   <entry>
     <title>12月月考的一些感想</title>
-    <link href="https://blog.xyxw.cf/2022/10/"/>
-    <id>https://blog.xyxw.cf/2022/10/</id>
+    <link href="https://xyxw.eu.org/2022/10/"/>
+    <id>https://xyxw.eu.org/2022/10/</id>
     <published>2022-11-30T14:04:07.000Z</published>
     <updated>2023-01-31T01:26:48.511Z</updated>
     
@@ -173,19 +271,19 @@
     
     
     
-    <category term="关于我的学习" scheme="https://blog.xyxw.cf/categories/%E5%85%B3%E4%BA%8E%E6%88%91%E7%9A%84%E5%AD%A6%E4%B9%A0/"/>
+    <category term="关于我的学习" scheme="https://xyxw.eu.org/categories/%E5%85%B3%E4%BA%8E%E6%88%91%E7%9A%84%E5%AD%A6%E4%B9%A0/"/>
     
     
-    <category term="学习" scheme="https://blog.xyxw.cf/tags/%E5%AD%A6%E4%B9%A0/"/>
+    <category term="学习" scheme="https://xyxw.eu.org/tags/%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="考试" scheme="https://blog.xyxw.cf/tags/%E8%80%83%E8%AF%95/"/>
+    <category term="考试" scheme="https://xyxw.eu.org/tags/%E8%80%83%E8%AF%95/"/>
     
   </entry>
   
   <entry>
     <title>关于冷漠的思考</title>
-    <link href="https://blog.xyxw.cf/2022/9/"/>
-    <id>https://blog.xyxw.cf/2022/9/</id>
+    <link href="https://xyxw.eu.org/2022/9/"/>
+    <id>https://xyxw.eu.org/2022/9/</id>
     <published>2022-11-26T01:22:05.000Z</published>
     <updated>2023-06-30T16:21:27.018Z</updated>
     
@@ -196,21 +294,21 @@
     
     
     
-    <category term="我对一些事物的思考" scheme="https://blog.xyxw.cf/categories/%E6%88%91%E5%AF%B9%E4%B8%80%E4%BA%9B%E4%BA%8B%E7%89%A9%E7%9A%84%E6%80%9D%E8%80%83/"/>
+    <category term="我对一些事物的思考" scheme="https://xyxw.eu.org/categories/%E6%88%91%E5%AF%B9%E4%B8%80%E4%BA%9B%E4%BA%8B%E7%89%A9%E7%9A%84%E6%80%9D%E8%80%83/"/>
     
     
-    <category term="学习" scheme="https://blog.xyxw.cf/tags/%E5%AD%A6%E4%B9%A0/"/>
+    <category term="学习" scheme="https://xyxw.eu.org/tags/%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="人性" scheme="https://blog.xyxw.cf/tags/%E4%BA%BA%E6%80%A7/"/>
+    <category term="人性" scheme="https://xyxw.eu.org/tags/%E4%BA%BA%E6%80%A7/"/>
     
-    <category term="冷漠" scheme="https://blog.xyxw.cf/tags/%E5%86%B7%E6%BC%A0/"/>
+    <category term="冷漠" scheme="https://xyxw.eu.org/tags/%E5%86%B7%E6%BC%A0/"/>
     
   </entry>
   
   <entry>
     <title>关于自私的思考</title>
-    <link href="https://blog.xyxw.cf/2022/7/"/>
-    <id>https://blog.xyxw.cf/2022/7/</id>
+    <link href="https://xyxw.eu.org/2022/7/"/>
+    <id>https://xyxw.eu.org/2022/7/</id>
     <published>2022-11-13T11:05:25.000Z</published>
     <updated>2023-06-30T16:29:22.519Z</updated>
     
@@ -221,21 +319,21 @@
     
     
     
-    <category term="我对一些事物的思考" scheme="https://blog.xyxw.cf/categories/%E6%88%91%E5%AF%B9%E4%B8%80%E4%BA%9B%E4%BA%8B%E7%89%A9%E7%9A%84%E6%80%9D%E8%80%83/"/>
+    <category term="我对一些事物的思考" scheme="https://xyxw.eu.org/categories/%E6%88%91%E5%AF%B9%E4%B8%80%E4%BA%9B%E4%BA%8B%E7%89%A9%E7%9A%84%E6%80%9D%E8%80%83/"/>
     
     
-    <category term="学习" scheme="https://blog.xyxw.cf/tags/%E5%AD%A6%E4%B9%A0/"/>
+    <category term="学习" scheme="https://xyxw.eu.org/tags/%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="人性" scheme="https://blog.xyxw.cf/tags/%E4%BA%BA%E6%80%A7/"/>
+    <category term="人性" scheme="https://xyxw.eu.org/tags/%E4%BA%BA%E6%80%A7/"/>
     
-    <category term="自私" scheme="https://blog.xyxw.cf/tags/%E8%87%AA%E7%A7%81/"/>
+    <category term="自私" scheme="https://xyxw.eu.org/tags/%E8%87%AA%E7%A7%81/"/>
     
   </entry>
   
   <entry>
     <title>转-我的关于如何提高效率的思考</title>
-    <link href="https://blog.xyxw.cf/2022/4/"/>
-    <id>https://blog.xyxw.cf/2022/4/</id>
+    <link href="https://xyxw.eu.org/2022/4/"/>
+    <id>https://xyxw.eu.org/2022/4/</id>
     <published>2022-11-11T06:33:21.000Z</published>
     <updated>2023-01-31T01:29:09.456Z</updated>
     
@@ -246,23 +344,23 @@
     
     
     
-    <category term="关于我的学习" scheme="https://blog.xyxw.cf/categories/%E5%85%B3%E4%BA%8E%E6%88%91%E7%9A%84%E5%AD%A6%E4%B9%A0/"/>
+    <category term="关于我的学习" scheme="https://xyxw.eu.org/categories/%E5%85%B3%E4%BA%8E%E6%88%91%E7%9A%84%E5%AD%A6%E4%B9%A0/"/>
     
     
-    <category term="学习" scheme="https://blog.xyxw.cf/tags/%E5%AD%A6%E4%B9%A0/"/>
+    <category term="学习" scheme="https://xyxw.eu.org/tags/%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="作业" scheme="https://blog.xyxw.cf/tags/%E4%BD%9C%E4%B8%9A/"/>
+    <category term="作业" scheme="https://xyxw.eu.org/tags/%E4%BD%9C%E4%B8%9A/"/>
     
-    <category term="作业多" scheme="https://blog.xyxw.cf/tags/%E4%BD%9C%E4%B8%9A%E5%A4%9A/"/>
+    <category term="作业多" scheme="https://xyxw.eu.org/tags/%E4%BD%9C%E4%B8%9A%E5%A4%9A/"/>
     
-    <category term="效率" scheme="https://blog.xyxw.cf/tags/%E6%95%88%E7%8E%87/"/>
+    <category term="效率" scheme="https://xyxw.eu.org/tags/%E6%95%88%E7%8E%87/"/>
     
   </entry>
   
   <entry>
     <title>转-我的关于写不完作业的思考</title>
-    <link href="https://blog.xyxw.cf/2022/1/"/>
-    <id>https://blog.xyxw.cf/2022/1/</id>
+    <link href="https://xyxw.eu.org/2022/1/"/>
+    <id>https://xyxw.eu.org/2022/1/</id>
     <published>2022-11-11T06:31:18.000Z</published>
     <updated>2023-01-31T01:29:40.489Z</updated>
     
@@ -273,21 +371,21 @@
     
     
     
-    <category term="关于我的学习" scheme="https://blog.xyxw.cf/categories/%E5%85%B3%E4%BA%8E%E6%88%91%E7%9A%84%E5%AD%A6%E4%B9%A0/"/>
+    <category term="关于我的学习" scheme="https://xyxw.eu.org/categories/%E5%85%B3%E4%BA%8E%E6%88%91%E7%9A%84%E5%AD%A6%E4%B9%A0/"/>
     
     
-    <category term="学习" scheme="https://blog.xyxw.cf/tags/%E5%AD%A6%E4%B9%A0/"/>
+    <category term="学习" scheme="https://xyxw.eu.org/tags/%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="作业" scheme="https://blog.xyxw.cf/tags/%E4%BD%9C%E4%B8%9A/"/>
+    <category term="作业" scheme="https://xyxw.eu.org/tags/%E4%BD%9C%E4%B8%9A/"/>
     
-    <category term="作业多" scheme="https://blog.xyxw.cf/tags/%E4%BD%9C%E4%B8%9A%E5%A4%9A/"/>
+    <category term="作业多" scheme="https://xyxw.eu.org/tags/%E4%BD%9C%E4%B8%9A%E5%A4%9A/"/>
     
   </entry>
   
   <entry>
     <title>转-亿些关于10.3聚会的小细节</title>
-    <link href="https://blog.xyxw.cf/2022/6/"/>
-    <id>https://blog.xyxw.cf/2022/6/</id>
+    <link href="https://xyxw.eu.org/2022/6/"/>
+    <id>https://xyxw.eu.org/2022/6/</id>
     <published>2022-11-11T06:29:26.000Z</published>
     <updated>2023-01-31T01:28:20.664Z</updated>
     
@@ -298,21 +396,21 @@
     
     
     
-    <category term="关于我的琐碎小事" scheme="https://blog.xyxw.cf/categories/%E5%85%B3%E4%BA%8E%E6%88%91%E7%9A%84%E7%90%90%E7%A2%8E%E5%B0%8F%E4%BA%8B/"/>
+    <category term="关于我的琐碎小事" scheme="https://xyxw.eu.org/categories/%E5%85%B3%E4%BA%8E%E6%88%91%E7%9A%84%E7%90%90%E7%A2%8E%E5%B0%8F%E4%BA%8B/"/>
     
     
-    <category term="聚会" scheme="https://blog.xyxw.cf/tags/%E8%81%9A%E4%BC%9A/"/>
+    <category term="聚会" scheme="https://xyxw.eu.org/tags/%E8%81%9A%E4%BC%9A/"/>
     
-    <category term="国庆" scheme="https://blog.xyxw.cf/tags/%E5%9B%BD%E5%BA%86/"/>
+    <category term="国庆" scheme="https://xyxw.eu.org/tags/%E5%9B%BD%E5%BA%86/"/>
     
-    <category term="万象城" scheme="https://blog.xyxw.cf/tags/%E4%B8%87%E8%B1%A1%E5%9F%8E/"/>
+    <category term="万象城" scheme="https://xyxw.eu.org/tags/%E4%B8%87%E8%B1%A1%E5%9F%8E/"/>
     
   </entry>
   
   <entry>
     <title>转-国庆第3天的万象城之旅</title>
-    <link href="https://blog.xyxw.cf/2022/5/"/>
-    <id>https://blog.xyxw.cf/2022/5/</id>
+    <link href="https://xyxw.eu.org/2022/5/"/>
+    <id>https://xyxw.eu.org/2022/5/</id>
     <published>2022-11-11T06:26:48.000Z</published>
     <updated>2023-06-30T16:31:52.922Z</updated>
     
@@ -323,21 +421,21 @@
     
     
     
-    <category term="关于我的琐碎小事" scheme="https://blog.xyxw.cf/categories/%E5%85%B3%E4%BA%8E%E6%88%91%E7%9A%84%E7%90%90%E7%A2%8E%E5%B0%8F%E4%BA%8B/"/>
+    <category term="关于我的琐碎小事" scheme="https://xyxw.eu.org/categories/%E5%85%B3%E4%BA%8E%E6%88%91%E7%9A%84%E7%90%90%E7%A2%8E%E5%B0%8F%E4%BA%8B/"/>
     
     
-    <category term="聚会" scheme="https://blog.xyxw.cf/tags/%E8%81%9A%E4%BC%9A/"/>
+    <category term="聚会" scheme="https://xyxw.eu.org/tags/%E8%81%9A%E4%BC%9A/"/>
     
-    <category term="国庆" scheme="https://blog.xyxw.cf/tags/%E5%9B%BD%E5%BA%86/"/>
+    <category term="国庆" scheme="https://xyxw.eu.org/tags/%E5%9B%BD%E5%BA%86/"/>
     
-    <category term="万象城" scheme="https://blog.xyxw.cf/tags/%E4%B8%87%E8%B1%A1%E5%9F%8E/"/>
+    <category term="万象城" scheme="https://xyxw.eu.org/tags/%E4%B8%87%E8%B1%A1%E5%9F%8E/"/>
     
   </entry>
   
   <entry>
     <title>网站评论细则</title>
-    <link href="https://blog.xyxw.cf/2022/2/"/>
-    <id>https://blog.xyxw.cf/2022/2/</id>
+    <link href="https://xyxw.eu.org/2022/2/"/>
+    <id>https://xyxw.eu.org/2022/2/</id>
     <published>2022-11-11T06:25:00.000Z</published>
     <updated>2023-01-31T01:24:08.271Z</updated>
     
@@ -357,19 +455,19 @@
     
     
     
-    <category term="网站公告" scheme="https://blog.xyxw.cf/categories/%E7%BD%91%E7%AB%99%E5%85%AC%E5%91%8A/"/>
+    <category term="网站公告" scheme="https://xyxw.eu.org/categories/%E7%BD%91%E7%AB%99%E5%85%AC%E5%91%8A/"/>
     
     
-    <category term="网站" scheme="https://blog.xyxw.cf/tags/%E7%BD%91%E7%AB%99/"/>
+    <category term="网站" scheme="https://xyxw.eu.org/tags/%E7%BD%91%E7%AB%99/"/>
     
-    <category term="公告" scheme="https://blog.xyxw.cf/tags/%E5%85%AC%E5%91%8A/"/>
+    <category term="公告" scheme="https://xyxw.eu.org/tags/%E5%85%AC%E5%91%8A/"/>
     
   </entry>
   
   <entry>
     <title>网站迁移公告</title>
-    <link href="https://blog.xyxw.cf/2022/3/"/>
-    <id>https://blog.xyxw.cf/2022/3/</id>
+    <link href="https://xyxw.eu.org/2022/3/"/>
+    <id>https://xyxw.eu.org/2022/3/</id>
     <published>2022-11-05T11:26:33.000Z</published>
     <updated>2023-06-30T16:30:51.302Z</updated>
     
@@ -384,12 +482,12 @@
     
     
     
-    <category term="网站公告" scheme="https://blog.xyxw.cf/categories/%E7%BD%91%E7%AB%99%E5%85%AC%E5%91%8A/"/>
+    <category term="网站公告" scheme="https://xyxw.eu.org/categories/%E7%BD%91%E7%AB%99%E5%85%AC%E5%91%8A/"/>
     
     
-    <category term="网站" scheme="https://blog.xyxw.cf/tags/%E7%BD%91%E7%AB%99/"/>
+    <category term="网站" scheme="https://xyxw.eu.org/tags/%E7%BD%91%E7%AB%99/"/>
     
-    <category term="公告" scheme="https://blog.xyxw.cf/tags/%E5%85%AC%E5%91%8A/"/>
+    <category term="公告" scheme="https://xyxw.eu.org/tags/%E5%85%AC%E5%91%8A/"/>
     
   </entry>
   

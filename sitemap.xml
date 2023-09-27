@@ -2,7 +2,52 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://blog.xyxw.cf/2022/5/</loc>
+    <loc>https://xyxw.eu.org/feel/index.html</loc>
+    
+    <lastmod>2023-08-28</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://xyxw.eu.org/2023/SP22343-NORMA2-Norma/</loc>
+    
+    <lastmod>2023-08-28</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://xyxw.eu.org/2023/P2533-AHOI2012-%E4%BF%A1%E5%8F%B7%E5%A1%94/</loc>
+    
+    <lastmod>2023-08-28</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://xyxw.eu.org/2023/P8734-%E8%93%9D%E6%A1%A5%E6%9D%AF-2020-%E5%9B%BD-A-%E5%A5%87%E5%81%B6%E8%A6%86%E7%9B%96/</loc>
+    
+    <lastmod>2023-08-28</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://xyxw.eu.org/2023/Tree-Summing-UVA112/</loc>
+    
+    <lastmod>2023-08-28</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://xyxw.eu.org/2022/5/</loc>
     
     <lastmod>2023-06-30</lastmod>
     
@@ -11,7 +56,7 @@
   </url>
   
   <url>
-    <loc>https://blog.xyxw.cf/2022/3/</loc>
+    <loc>https://xyxw.eu.org/2022/3/</loc>
     
     <lastmod>2023-06-30</lastmod>
     
@@ -20,7 +65,7 @@
   </url>
   
   <url>
-    <loc>https://blog.xyxw.cf/2022/7/</loc>
+    <loc>https://xyxw.eu.org/2022/7/</loc>
     
     <lastmod>2023-06-30</lastmod>
     
@@ -29,7 +74,7 @@
   </url>
   
   <url>
-    <loc>https://blog.xyxw.cf/2022/9/</loc>
+    <loc>https://xyxw.eu.org/2022/9/</loc>
     
     <lastmod>2023-06-30</lastmod>
     
@@ -38,7 +83,7 @@
   </url>
   
   <url>
-    <loc>https://blog.xyxw.cf/uplog/index.html</loc>
+    <loc>https://xyxw.eu.org/uplog/index.html</loc>
     
     <lastmod>2023-06-30</lastmod>
     
@@ -47,7 +92,7 @@
   </url>
   
   <url>
-    <loc>https://blog.xyxw.cf/game/index.html</loc>
+    <loc>https://xyxw.eu.org/game/index.html</loc>
     
     <lastmod>2023-06-30</lastmod>
     
@@ -56,7 +101,7 @@
   </url>
   
   <url>
-    <loc>https://blog.xyxw.cf/2023/17/</loc>
+    <loc>https://xyxw.eu.org/2023/17/</loc>
     
     <lastmod>2023-04-16</lastmod>
     
@@ -65,7 +110,7 @@
   </url>
   
   <url>
-    <loc>https://blog.xyxw.cf/2023/14/</loc>
+    <loc>https://xyxw.eu.org/2023/14/</loc>
     
     <lastmod>2023-04-16</lastmod>
     
@@ -74,7 +119,7 @@
   </url>
   
   <url>
-    <loc>https://blog.xyxw.cf/2022/13/</loc>
+    <loc>https://xyxw.eu.org/2022/13/</loc>
     
     <lastmod>2023-04-02</lastmod>
     
@@ -83,7 +128,7 @@
   </url>
   
   <url>
-    <loc>https://blog.xyxw.cf/music/index.html</loc>
+    <loc>https://xyxw.eu.org/music/index.html</loc>
     
     <lastmod>2023-02-12</lastmod>
     
@@ -92,7 +137,7 @@
   </url>
   
   <url>
-    <loc>https://blog.xyxw.cf/2023/16/</loc>
+    <loc>https://xyxw.eu.org/2023/16/</loc>
     
     <lastmod>2023-02-12</lastmod>
     
@@ -101,7 +146,7 @@
   </url>
   
   <url>
-    <loc>https://blog.xyxw.cf/2023/15/</loc>
+    <loc>https://xyxw.eu.org/2023/15/</loc>
     
     <lastmod>2023-02-01</lastmod>
     
@@ -110,7 +155,7 @@
   </url>
   
   <url>
-    <loc>https://blog.xyxw.cf/2022/1/</loc>
+    <loc>https://xyxw.eu.org/2022/1/</loc>
     
     <lastmod>2023-01-31</lastmod>
     
@@ -119,7 +164,7 @@
   </url>
   
   <url>
-    <loc>https://blog.xyxw.cf/2022/4/</loc>
+    <loc>https://xyxw.eu.org/2022/4/</loc>
     
     <lastmod>2023-01-31</lastmod>
     
@@ -128,7 +173,7 @@
   </url>
   
   <url>
-    <loc>https://blog.xyxw.cf/2022/6/</loc>
+    <loc>https://xyxw.eu.org/2022/6/</loc>
     
     <lastmod>2023-01-31</lastmod>
     
@@ -137,7 +182,7 @@
   </url>
   
   <url>
-    <loc>https://blog.xyxw.cf/2022/10/</loc>
+    <loc>https://xyxw.eu.org/2022/10/</loc>
     
     <lastmod>2023-01-31</lastmod>
     
@@ -146,7 +191,7 @@
   </url>
   
   <url>
-    <loc>https://blog.xyxw.cf/2022/12/</loc>
+    <loc>https://xyxw.eu.org/2022/12/</loc>
     
     <lastmod>2023-01-31</lastmod>
     
@@ -155,7 +200,7 @@
   </url>
   
   <url>
-    <loc>https://blog.xyxw.cf/2022/2/</loc>
+    <loc>https://xyxw.eu.org/2022/2/</loc>
     
     <lastmod>2023-01-31</lastmod>
     
@@ -164,7 +209,7 @@
   </url>
   
   <url>
-    <loc>https://blog.xyxw.cf/uplog/hidden/romance.html</loc>
+    <loc>https://xyxw.eu.org/uplog/hidden/romance.html</loc>
     
     <lastmod>2023-01-28</lastmod>
     
@@ -173,7 +218,7 @@
   </url>
   
   <url>
-    <loc>https://blog.xyxw.cf/uplog/hidden/romance_old.html</loc>
+    <loc>https://xyxw.eu.org/uplog/hidden/romance_old.html</loc>
     
     <lastmod>2023-01-27</lastmod>
     
@@ -182,7 +227,7 @@
   </url>
   
   <url>
-    <loc>https://blog.xyxw.cf/uplog/hidden/index.html</loc>
+    <loc>https://xyxw.eu.org/uplog/hidden/index.html</loc>
     
     <lastmod>2023-01-27</lastmod>
     
@@ -191,7 +236,7 @@
   </url>
   
   <url>
-    <loc>https://blog.xyxw.cf/effect/index.html</loc>
+    <loc>https://xyxw.eu.org/effect/index.html</loc>
     
     <lastmod>2022-12-04</lastmod>
     
@@ -200,7 +245,7 @@
   </url>
   
   <url>
-    <loc>https://blog.xyxw.cf/mboard/index.html</loc>
+    <loc>https://xyxw.eu.org/mboard/index.html</loc>
     
     <lastmod>2022-11-26</lastmod>
     
@@ -209,7 +254,7 @@
   </url>
   
   <url>
-    <loc>https://blog.xyxw.cf/categories/index.html</loc>
+    <loc>https://xyxw.eu.org/categories/index.html</loc>
     
     <lastmod>2022-11-12</lastmod>
     
@@ -218,7 +263,7 @@
   </url>
   
   <url>
-    <loc>https://blog.xyxw.cf/tags/index.html</loc>
+    <loc>https://xyxw.eu.org/tags/index.html</loc>
     
     <lastmod>2022-11-12</lastmod>
     
@@ -228,114 +273,121 @@
   
 
   <url>
-    <loc>https://blog.xyxw.cf/</loc>
-    <lastmod>2023-06-30</lastmod>
+    <loc>https://xyxw.eu.org/</loc>
+    <lastmod>2023-09-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   
   <url>
-    <loc>https://blog.xyxw.cf/tags/%E5%AD%A6%E4%B9%A0/</loc>
-    <lastmod>2023-06-30</lastmod>
+    <loc>https://xyxw.eu.org/tags/%E5%AD%A6%E4%B9%A0/</loc>
+    <lastmod>2023-09-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.xyxw.cf/tags/%E4%BD%9C%E4%B8%9A/</loc>
-    <lastmod>2023-06-30</lastmod>
+    <loc>https://xyxw.eu.org/tags/%E4%BD%9C%E4%B8%9A/</loc>
+    <lastmod>2023-09-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.xyxw.cf/tags/%E4%BD%9C%E4%B8%9A%E5%A4%9A/</loc>
-    <lastmod>2023-06-30</lastmod>
+    <loc>https://xyxw.eu.org/tags/%E4%BD%9C%E4%B8%9A%E5%A4%9A/</loc>
+    <lastmod>2023-09-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.xyxw.cf/tags/%E8%80%83%E8%AF%95/</loc>
-    <lastmod>2023-06-30</lastmod>
+    <loc>https://xyxw.eu.org/tags/%E8%80%83%E8%AF%95/</loc>
+    <lastmod>2023-09-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.xyxw.cf/tags/%E6%84%9F%E6%83%85/</loc>
-    <lastmod>2023-06-30</lastmod>
+    <loc>https://xyxw.eu.org/tags/%E6%84%9F%E6%83%85/</loc>
+    <lastmod>2023-09-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.xyxw.cf/tags/%E9%9A%8F%E7%AC%94/</loc>
-    <lastmod>2023-06-30</lastmod>
+    <loc>https://xyxw.eu.org/tags/%E9%9A%8F%E7%AC%94/</loc>
+    <lastmod>2023-09-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.xyxw.cf/tags/%E7%BD%91%E7%AB%99/</loc>
-    <lastmod>2023-06-30</lastmod>
+    <loc>https://xyxw.eu.org/tags/%E7%BD%91%E7%AB%99/</loc>
+    <lastmod>2023-09-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.xyxw.cf/tags/%E5%85%AC%E5%91%8A/</loc>
-    <lastmod>2023-06-30</lastmod>
+    <loc>https://xyxw.eu.org/tags/%E5%85%AC%E5%91%8A/</loc>
+    <lastmod>2023-09-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.xyxw.cf/tags/%E6%95%88%E7%8E%87/</loc>
-    <lastmod>2023-06-30</lastmod>
+    <loc>https://xyxw.eu.org/tags/%E6%95%88%E7%8E%87/</loc>
+    <lastmod>2023-09-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.xyxw.cf/tags/%E8%81%9A%E4%BC%9A/</loc>
-    <lastmod>2023-06-30</lastmod>
+    <loc>https://xyxw.eu.org/tags/%E8%81%9A%E4%BC%9A/</loc>
+    <lastmod>2023-09-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.xyxw.cf/tags/%E5%9B%BD%E5%BA%86/</loc>
-    <lastmod>2023-06-30</lastmod>
+    <loc>https://xyxw.eu.org/tags/%E5%9B%BD%E5%BA%86/</loc>
+    <lastmod>2023-09-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.xyxw.cf/tags/%E4%B8%87%E8%B1%A1%E5%9F%8E/</loc>
-    <lastmod>2023-06-30</lastmod>
+    <loc>https://xyxw.eu.org/tags/%E4%B8%87%E8%B1%A1%E5%9F%8E/</loc>
+    <lastmod>2023-09-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.xyxw.cf/tags/%E4%BA%BA%E6%80%A7/</loc>
-    <lastmod>2023-06-30</lastmod>
+    <loc>https://xyxw.eu.org/tags/%E4%BA%BA%E6%80%A7/</loc>
+    <lastmod>2023-09-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.xyxw.cf/tags/%E8%87%AA%E7%A7%81/</loc>
-    <lastmod>2023-06-30</lastmod>
+    <loc>https://xyxw.eu.org/tags/%E8%87%AA%E7%A7%81/</loc>
+    <lastmod>2023-09-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.xyxw.cf/tags/%E5%86%B7%E6%BC%A0/</loc>
-    <lastmod>2023-06-30</lastmod>
+    <loc>https://xyxw.eu.org/tags/%E5%86%B7%E6%BC%A0/</loc>
+    <lastmod>2023-09-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://xyxw.eu.org/tags/%E9%A2%98%E8%A7%A3/</loc>
+    <lastmod>2023-09-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -343,36 +395,36 @@
 
   
   <url>
-    <loc>https://blog.xyxw.cf/categories/%E5%85%B3%E4%BA%8E%E6%88%91%E7%9A%84%E5%AD%A6%E4%B9%A0/</loc>
-    <lastmod>2023-06-30</lastmod>
+    <loc>https://xyxw.eu.org/categories/%E5%85%B3%E4%BA%8E%E6%88%91%E7%9A%84%E5%AD%A6%E4%B9%A0/</loc>
+    <lastmod>2023-09-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.xyxw.cf/categories/%E6%88%91%E5%AF%B9%E4%B8%80%E4%BA%9B%E4%BA%8B%E7%89%A9%E7%9A%84%E6%80%9D%E8%80%83/</loc>
-    <lastmod>2023-06-30</lastmod>
+    <loc>https://xyxw.eu.org/categories/%E6%88%91%E5%AF%B9%E4%B8%80%E4%BA%9B%E4%BA%8B%E7%89%A9%E7%9A%84%E6%80%9D%E8%80%83/</loc>
+    <lastmod>2023-09-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.xyxw.cf/categories/%E7%BD%91%E7%AB%99%E5%85%AC%E5%91%8A/</loc>
-    <lastmod>2023-06-30</lastmod>
+    <loc>https://xyxw.eu.org/categories/%E5%85%B3%E4%BA%8E%E6%88%91%E7%9A%84%E7%90%90%E7%A2%8E%E5%B0%8F%E4%BA%8B/</loc>
+    <lastmod>2023-09-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.xyxw.cf/categories/%E5%85%B3%E4%BA%8E%E6%88%91%E7%9A%84%E7%90%90%E7%A2%8E%E5%B0%8F%E4%BA%8B/</loc>
-    <lastmod>2023-06-30</lastmod>
+    <loc>https://xyxw.eu.org/categories/%E7%BD%91%E7%AB%99%E5%85%AC%E5%91%8A/</loc>
+    <lastmod>2023-09-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.xyxw.cf/categories/html/</loc>
-    <lastmod>2023-06-30</lastmod>
+    <loc>https://xyxw.eu.org/categories/html/</loc>
+    <lastmod>2023-09-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
