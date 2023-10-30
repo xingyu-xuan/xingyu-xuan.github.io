@@ -1,0 +1,541 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="dark"><script>((function() {var callbacks = [],timeLimit = 50,open = false;setInterval(loop, 1);return {addListener: function(fn) {callbacks.push(fn);},cancleListenr: function(fn) {callbacks = callbacks.filter(function(v) {return v !== fn;});}}
+function loop() {var startTime = new Date();debugger;if (new Date() - startTime > timeLimit) {if (!open) {callbacks.forEach(function(fn) {fn.call(null);});}open = true;window.stop();alert('你真坏，请关闭控制台！');document.body.innerHTML = "";} else {open = false;}}})()).addListener(function() {window.location.reload();});</script><script>function toDevtools(){
+  let num = 0; 
+  let devtools = new Date();
+  devtools.toString = function() {
+    num++;
+    if (num > 1) {
+        alert('你真坏，请关闭控制台！')
+        window.location.href = "about:blank"
+        blast();
+    }
+  }
+  console.log('', devtools);
+}
+toDevtools();</script><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Basic-Mathmatics-Notes | This is xingyu.</title><meta name="author" content="Xingyu"><meta name="copyright" content="Xingyu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="鲜花 从树论赶来的，感觉这个东西没什么用啊…QwQ 欧几里得 欧几里得算法 也称辗转相除法。 就是一个简单的式子： $$ \gcd(a,b)&#x3D;\gcd(b,a \bmod b) $$ 证明如下： $$ \text{令 } b&#x3D;ka+r\ ,\ gcd(a,b)&#x3D;d\ \text{则有 } d\ \vert\ a\ ,\ d\ \vert\ b\ r&#x3D;b-ka\Rightarrow \frac{b}">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Basic-Mathmatics-Notes">
+<meta property="og:url" content="https://xyxw.eu.org/2023/Basic-Mathmatics-Notes/index.html">
+<meta property="og:site_name" content="This is xingyu.">
+<meta property="og:description" content="鲜花 从树论赶来的，感觉这个东西没什么用啊…QwQ 欧几里得 欧几里得算法 也称辗转相除法。 就是一个简单的式子： $$ \gcd(a,b)&#x3D;\gcd(b,a \bmod b) $$ 证明如下： $$ \text{令 } b&#x3D;ka+r\ ,\ gcd(a,b)&#x3D;d\ \text{则有 } d\ \vert\ a\ ,\ d\ \vert\ b\ r&#x3D;b-ka\Rightarrow \frac{b}">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s1.ax1x.com/2023/01/31/pSwL9sg.jpg">
+<meta property="article:published_time" content="2023-10-16T02:29:16.000Z">
+<meta property="article:modified_time" content="2023-10-16T02:33:12.722Z">
+<meta property="article:author" content="Xingyu">
+<meta property="article:tag" content="OI">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s1.ax1x.com/2023/01/31/pSwL9sg.jpg"><link rel="shortcut icon" href="https://s1.ax1x.com/2023/01/31/pSwL9sg.jpg"><link rel="canonical" href="https://xyxw.eu.org/2023/Basic-Mathmatics-Notes/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/6.2.1/css/all.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":35,"languages":{"author":"作者: Xingyu","link":"链接: ","source":"来源: This is xingyu.","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#87cefa","position":"top-left"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Basic-Mathmatics-Notes',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-10-16 10:33:12'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom1.css"><link rel="stylesheet" href="/css/font.css"><link rel="stylesheet" href="https://npm.elemecdn.com/ethan4116-blog/lib/css/plane_v2.css"><link rel="stylesheet" href="/css/universe.css"><link rel="stylesheet" href="./css/gallery.css"><link rel="stylesheet" href="./css/olli.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous"><script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.css" /><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="This is xingyu." type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://s1.ax1x.com/2023/01/31/pSwL9sg.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">26</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-book"></i><span> 文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/feel/"><i class="fa-fw fas fa-quote-left"></i><span> 碎碎念</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-coffee"></i><span> 娱乐</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/effect/"><i class="fa-fw fas fa-fire"></i><span> 特效</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/game/"><i class="fa-fw fas fa-gamepad"></i><span> 游戏</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/mboard/"><i class="fa-fw fas fa-comments"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/uplog/"><i class="fa-fw fas fa-cogs"></i><span> 网站日志</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://s1.ax1x.com/2023/01/31/pSwL9sg.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">This is xingyu.</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-book"></i><span> 文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/feel/"><i class="fa-fw fas fa-quote-left"></i><span> 碎碎念</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-coffee"></i><span> 娱乐</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/effect/"><i class="fa-fw fas fa-fire"></i><span> 特效</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/game/"><i class="fa-fw fas fa-gamepad"></i><span> 游戏</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/mboard/"><i class="fa-fw fas fa-comments"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/uplog/"><i class="fa-fw fas fa-cogs"></i><span> 网站日志</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Basic-Mathmatics-Notes</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-10-16T02:29:16.000Z" title="发表于 2023-10-16 10:29:16">2023-10-16</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-10-16T02:33:12.722Z" title="更新于 2023-10-16 10:33:12">2023-10-16</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/OI/">OI</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">5.6k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>29分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Basic-Mathmatics-Notes"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1>鲜花</h1>
+<p>从树论赶来的，感觉这个东西没什么用啊…QwQ</p>
+<h1>欧几里得</h1>
+<h2 id="欧几里得算法">欧几里得算法</h2>
+<p>也称辗转相除法。</p>
+<p>就是一个简单的式子：<br>
+$$<br>
+\gcd(a,b)=\gcd(b,a \bmod b)<br>
+$$<br>
+证明如下：<br>
+$$<br>
+\text{令 } b=ka+r\ ,\ gcd(a,b)=d\<br>
+\text{则有 } d\ \vert\ a\ ,\ d\ \vert\ b\<br>
+r=b-ka\Rightarrow \frac{b}{d} - \frac{ka}{d}=\frac{r}{d}\<br>
+\text{由于左边显然为整数}\<br>
+\therefore r\ \text{和 } a \text{ 的公约数相等}\<br>
+\therefore r\ \text{和 } a \text{ 的最大公约数相等}<br>
+$$<br>
+证毕。</p>
+<h2 id="扩展欧几里得算法（exgcd）">扩展欧几里得算法（exgcd）</h2>
+<h3 id="裴蜀定理">裴蜀定理</h3>
+<h4 id="定理">定理</h4>
+<p>对于任意不全为 $0$ 的整数 $a,b$，均存在一组整数 $x,y$，使得 $ax+by=\gcd(a,b)$。</p>
+<h4 id="证明">证明</h4>
+<p>令 $d=\gcd(a,b),a=a_1d,b=b_1d$。</p>
+<p>则有 $a_1dx+b_1dy=d(a_1x+b_1y)$。</p>
+<p>那么可以把证明转化为<strong>对于任意不全为 $0$ 的整数 $a,b$ 满足 $\gcd(a,b)=1$，存在一组整数 $x,y$，满足 $ax+by=1$</strong>。</p>
+<p>考虑模拟一遍欧几里得算法求 $\gcd(a,b)$。<br>
+$$<br>
+\gcd(a,b)\Rightarrow\gcd(b,a\bmod b)\Rightarrow\gcd(a\bmod b,b\bmod(a\bmod b))\Rightarrow\cdots\cdots<br>
+$$<br>
+发现很复杂，则把每一次的数记为 $r_1,r_2,r_3$，并记录每一次的等式：<br>
+$$<br>
+r_{m-1}=r_mq_m\<br>
+r_{m-2}=r_{m-1}q_{m-1}+r_m\\cdots\cdots\<br>
+r_1=r_2q_2+r_3\<br>
+a=r_1q_1+r_2<br>
+$$<br>
+考虑带入 $\gcd(a,b)=1$，则 $r_m=1$。然后把 $q_k$ 换成 $x_{k+1}$。<br>
+$$<br>
+\cdots\Rightarrow r_{m-2}=r_{m-1}x_{m}+1\Rightarrow 1=r_{m-2}-x_mr_{m-1}<br>
+$$<br>
+继续带入。<br>
+$$<br>
+r_{m-3}=r_{m-2}x_{m-1}+r_{m-1}\Rightarrow r_{m-1}=r_{m-3}-r_{m-2}x_{m-1}\<br>
+\cdots\Rightarrow 1=r_{m-2}-x_m(r_{m-3}-x_{m-1}r_{m-2})\Rightarrow 1=r_{m-2}-x_mr_{m-3}+x_mx_{m-1}r_{m-2}\Rightarrow 1=(1+x_mx_{m-1})r_{m-2}-x_mr_{m-3}\<br>
+r_{m-4}=r_{m-3}x_{m-2}+r_{m-2}\Rightarrow r_{m-2}=r_{m-4}-r_{m-3}x_{m-2}\<br>
+\cdots\Rightarrow1=(1+x_mx_{m-1})(r_{m-4}-r_{m-3}x_{m-2})-x_mr_{m-3}\Rightarrow 1=(1+x_mx_{m-1})r_{m-4}-(x_{m-2}x_{m-1}x_m+x_{m-2}+x_m)r_{m-3}<br>
+$$<br>
+可以通过模拟发现，总有系数可以满足等式左边为 $1$，由于最后 $r$ 可变为 $a,b$，所以可推出 $ax+by=1$ 成立。</p>
+<p>证毕。</p>
+<h4 id="例题：P4549">例题：<a target="_blank" rel="noopener" href="https://www.lougu.com.cn/problem/P4549">P4549</a></h4>
+<p>显然 $a_1x+b_1y=1$  是右边最小的情况。所以 $ax+by=\gcd(a,b)$ 是当前式子右边最小的情况。</p>
+<p>由于 $\gcd(a,b)=\gcd(a,-b)$，所以只需要算出所有数的 $\gcd$ 即可。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">gcd</span><span class="params">(<span class="type">int</span> a,<span class="type">int</span> b)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(a==<span class="number">0</span>)<span class="keyword">return</span> b;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">gcd</span>(b%a,a);</span><br><span class="line">&#125; </span><br><span class="line"><span class="type">int</span> a[<span class="number">100001</span>];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">	<span class="type">int</span> n;</span><br><span class="line">	cin&gt;&gt;n;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		cin&gt;&gt;a[i];</span><br><span class="line">		a[i]=<span class="built_in">abs</span>(a[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>;i&lt;=n;i++)a[i]=<span class="built_in">gcd</span>(a[i],a[i<span class="number">-1</span>]);</span><br><span class="line">	cout&lt;&lt;a[n];</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="应用：CF510D">应用：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/CF510D">CF510D</a></h4>
+<p>根据裴蜀定理可得，当 $\gcd(a,b)=1$ 时，一定有一组解 $x,y$，能满足 $ax+by=1$，此时就能满足题中所要求的 <code>能跳到所有位置上</code>。</p>
+<p>然而题中要求最小。</p>
+<p>考虑 dp，列出 dp 方程式：<br>
+$$<br>
+f_{\gcd(x,y)}=\min(f_{\gcd(x,y)},f_x+c_y)<br>
+$$<br>
+使用 <code>unordered_map</code> 记录之前的状态，对于每个点进行转移即可。</p>
+<p>时间复杂度 $O(玄学)$。</p>
+<p>咳咳，我之前写树上莫队的时候什么也没说。</p>
+<p>但是很神奇的是用 <code>unordered_map</code> 会 <code>WA</code>，所以有点离谱。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">gcd</span><span class="params">(<span class="type">int</span> a,<span class="type">int</span> b)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(!b)<span class="keyword">return</span> a;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">gcd</span>(b,a%b);</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> n,l[<span class="number">301</span>],c[<span class="number">303</span>];</span><br><span class="line">map&lt;<span class="type">int</span>,<span class="type">int</span>&gt; mp;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">	cin&gt;&gt;n;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)cin&gt;&gt;l[i];</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)cin&gt;&gt;c[i];</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		<span class="keyword">for</span>(pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt; x:mp)&#123;</span><br><span class="line">			<span class="type">int</span> _next=<span class="built_in">gcd</span>(x.first,l[i]);</span><br><span class="line">			<span class="keyword">if</span>(!mp[_next])mp[_next]=c[i]+x.second;</span><br><span class="line">			<span class="keyword">else</span> mp[_next]=<span class="built_in">min</span>(mp[_next],c[i]+x.second);</span><br><span class="line"><span class="comment">//			cout&lt;&lt;i&lt;&lt;&quot; &quot;&lt;&lt;_next&lt;&lt;&quot;\n&quot;;</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(!mp[l[i]])mp[l[i]]=c[i];</span><br><span class="line">		<span class="keyword">else</span> mp[l[i]]=<span class="built_in">min</span>(mp[l[i]],c[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(!mp[<span class="number">1</span>])mp[<span class="number">1</span>]=<span class="number">-1</span>;</span><br><span class="line">	cout&lt;&lt;mp[<span class="number">1</span>];</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="进一步结论">进一步结论</h4>
+<p>对于不定方程 $ax+by=n$，如果该方程有解，则称 $n$ 能被（系数） $a,b$ 表示。</p>
+<p>记 $C=ab-a-b$，发现 $C=(a-1)(b-1)-1$，而若 $a,b$ 互质，那么至少其中有一个为偶数，那么 $C$ 必为奇数。</p>
+<p>那么则有结论，<strong>对于任意整数 $n$，$n$ 和 $C-n$ 中只有一个能被 $a,b$ 表示</strong>。</p>
+<p>注意此处的 $x,y$ 为自然数，即 $0$ 可被表示，$C$ 不可被表示；负数不可被表示，大于 $C$ 的数可被表示。</p>
+<p>证明分三步：</p>
+<p>令原方程解为：<br>
+$$<br>
+\begin{cases}<br>
+x=x_0+bt \cr<br>
+y=y_0-at<br>
+\end{cases}<br>
+$$<br>
+如果控制 $t$ 的大小，$y$ 能控制在 $0$ 到 $a-1$ 的范围内。其实可以发现对于 $[0,C]$ 的数， $y$ 不可能超过 $a-1$。</p>
+<p>第一步：证明当 $n&gt;C$ 时，$n$ 都能被表示。</p>
+<p>考虑 $y_{max}=a-1$，可以得到以下式子：<br>
+$$<br>
+ax=n-by&gt;ab-a-b-by\geq ab-a-b-b(a-1)=-a\Rightarrow x&gt;-1<br>
+$$<br>
+可见 $x$ 也是非负整数。</p>
+<p>第二步：证明 $n=C$ 时，$n$ 不能被表示。</p>
+<p>考虑如果 $n=C$ 时有解，即满足 $ax+by=ab-a-b$。</p>
+<p>则有 $ab=a(x+1)+b(y+1)\Rightarrow a(b-x-1)=b(y+1)$。</p>
+<p>由于 $a,b$ 互质，那么可以满足 $b-x-1=kb\ ,\ y+1=ka$。</p>
+<p>由于 $y\in[0,a-1]$，所以 $k=1$。此时 $x=-1$，矛盾，故 $C$ 不能被表示。</p>
+<p>此处的证明是作者口胡的，所以与 OI Wiki 上的解释不同。</p>
+<p>第三步：证明当 $n$ 不能被表示时，$C-n$ 能被表示。</p>
+<p>由于 $n$ 不能被表示，而 $y\in[0,a-1]$，故 $x$ 为负数。<br>
+$$<br>
+C-n=ab-a-b-ax-by=a(-1-x)+b(a-1-y)<br>
+$$<br>
+显然 $-1-x$ 和 $a-1-y$ 是非负的。</p>
+<p>证毕。</p>
+<p>几何意义看不懂。</p>
+<h4 id="另一种解释">另一种解释</h4>
+<p>考虑模 $b$ 意义下的每个剩余系最小能表示的值。因为 $\gcd(a,b)=1$，所以 $0,a,2a,\cdots,(b-1)a$ 在模 $b$ 的时候意义各不相同。</p>
+<p>那么小于等于 $n$ 的能表示的所有非负整数的<strong>数量</strong>为：<br>
+$$<br>
+\sum_{i=0}^{\left\lfloor \frac{n}{a} \right\rfloor}\left\lfloor\frac{n-ai}{b}\right\rfloor<br>
+$$</p>
+<p>因为对于所有剩余系的意义不同，所以要将所有剩余系的贡献累加。</p>
+<p>用类欧几里得算法可以做到 $O(\log(\max(a,b)))$。</p>
+<h3 id="exgcd">exgcd</h3>
+<p>这个东西主要是来求不定方程 $ax+by=\gcd(a,b)$ 的一组整数解。也就是构造裴蜀定理的一组解。</p>
+<h4 id="构造过程">构造过程</h4>
+<p>考虑证明裴蜀定理的时候，对于 $\gcd(a,b)=1$ 的情况，我们是直接对欧几里得算法进行了反带最后得出解。</p>
+<p>有了计算机，那么我们可以反带 $\gcd(a,b)\ne 1$ 的情况，是与 $\gcd(a,b)=1$ 时差不多的。</p>
+<p>下面就是推式子环节了。</p>
+<p>首先，对于欧几里得算法退出时，它的返回条件是 $b=0$，可发现此时一组可行解为：（不换行太丑了）<br>
+$$<br>
+\begin{cases}x=1\cr y=0\end{cases}<br>
+$$<br>
+然后对于任意 $ax+by=\gcd(a,b)$，考虑转化为递推。<br>
+$$<br>
+ax+by=\gcd(a,b)=\gcd(b,a \bmod b)=bx_0+(a\bmod b)y_0\<br>
+\Rightarrow ax+by=bx_0+(a-\left\lfloor\frac{a}{b}\right\rfloor\times b)y_0=ay_0+b(x_0-\left\lfloor\frac{a}{b}\right\rfloor y_0)<br>
+$$<br>
+所以推出一组可行的解 $x=y_0\ ,\ y=x_0-\left\lfloor\frac{a}{b}\right\rfloor y_0$。</p>
+<p>递推即可。</p>
+<h4 id="例题：P5656">例题：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P5656">P5656</a></h4>
+<p>这题要求是真的多。</p>
+<p>首先用 exgcd 算出一组特解，然后来考虑各组解的关系。</p>
+<p>列出式子 $a(x+p)+b(y-q)=ax+by=c$，发现 $ap=bq$。</p>
+<p>由于 $p$ 和 $q$ 均为整数，所以 $p_{min}=\frac{1}{a}\times\operatorname{lcm}(a,b)$，$q_{min}$ 同。</p>
+<p>然后就可以直接算出题中要求的所有信息了。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> int long long</span></span><br><span class="line"><span class="type">int</span> x,y,_a,_b,_c;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">exgcd</span><span class="params">(<span class="type">int</span> a,<span class="type">int</span> b)</span></span>&#123;</span><br><span class="line">	<span class="type">int</span> d=a;</span><br><span class="line">	<span class="keyword">if</span>(b==<span class="number">0</span>)x=<span class="number">1</span>,y=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">else</span> d=<span class="built_in">exgcd</span>(b,a%b),<span class="built_in">swap</span>(x,y),y-=a/b*x;</span><br><span class="line">	<span class="keyword">return</span> d;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>);</span><br><span class="line">	<span class="type">int</span> n;</span><br><span class="line">	cin&gt;&gt;n;</span><br><span class="line">	<span class="keyword">while</span>(n--)&#123;</span><br><span class="line">		cin&gt;&gt;_a&gt;&gt;_b&gt;&gt;_c;</span><br><span class="line">		<span class="type">int</span> d=<span class="built_in">exgcd</span>(_a,_b);</span><br><span class="line">		<span class="keyword">if</span>(_c%d)&#123;</span><br><span class="line">			cout&lt;&lt;<span class="number">-1</span>&lt;&lt;<span class="string">&quot;\n&quot;</span>;</span><br><span class="line">			<span class="keyword">continue</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="type">int</span> k=_c/d;</span><br><span class="line">		x*=k,y*=k;</span><br><span class="line">		<span class="type">int</span> p=_b/d,q=_a/d;<span class="comment">//a(x+p)+b(y-q)=c，要交叉对应，别写反了！！！！</span></span><br><span class="line">		<span class="comment">//用x,y其中一个最小整数解对应的那个数判断</span></span><br><span class="line">		<span class="type">int</span> test=y/q;</span><br><span class="line">		<span class="type">int</span> tx=test*p+x,ty=-test*q+y;</span><br><span class="line">		<span class="keyword">if</span>(ty&lt;=<span class="number">0</span>)ty+=q,tx-=p;</span><br><span class="line">		<span class="keyword">if</span>(tx&lt;=<span class="number">0</span>)&#123;</span><br><span class="line">			cout&lt;&lt;-(tx/p)*p+p+tx&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;ty&lt;&lt;<span class="string">&quot;\n&quot;</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span>&#123;</span><br><span class="line">			cout&lt;&lt;(tx<span class="number">-1</span>)/p+<span class="number">1</span>&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;(tx<span class="number">-1</span>)%p+<span class="number">1</span>&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;ty&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;tx&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;(tx<span class="number">-1</span>)/p*q+ty&lt;&lt;<span class="string">&quot;\n&quot;</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="例题：P1516">例题：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1516">P1516</a></h4>
+<p>考虑把这道题的参数转换成 $ax+by=n$。</p>
+<p>考虑追及问题，所以可以列出：$\Delta vx+Ly=\Delta s$。</p>
+<p>算出特解之后像上面那道题一样算 $x$ 的最小正整数解即可。</p>
+<p>注意 $\Delta v$ 必须为正，如果要取反记得把 $\Delta s$ 也要取反。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> int long long</span></span><br><span class="line"><span class="type">int</span> n,m,x,y,L;</span><br><span class="line"><span class="type">int</span> _x,_y;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">exgcd</span><span class="params">(<span class="type">int</span> a,<span class="type">int</span> b)</span></span>&#123;</span><br><span class="line">	<span class="type">int</span> d=a;</span><br><span class="line">	<span class="keyword">if</span>(!b)_x=<span class="number">1</span>,_y=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">else</span> d=<span class="built_in">exgcd</span>(b,a%b),<span class="built_in">swap</span>(_x,_y),_y-=a/b*_x;</span><br><span class="line">	<span class="keyword">return</span> d;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>);</span><br><span class="line">	cin&gt;&gt;x&gt;&gt;y&gt;&gt;m&gt;&gt;n&gt;&gt;L;</span><br><span class="line">	<span class="type">int</span> z=n-m,f=x-y;</span><br><span class="line">	<span class="keyword">if</span>(z&lt;<span class="number">0</span>)z=-z,f=-f;</span><br><span class="line">	<span class="keyword">if</span>(f==<span class="number">0</span>)&#123;</span><br><span class="line">		cout&lt;&lt;<span class="number">0</span>;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line"><span class="comment">//	cout&lt;&lt;z&lt;&lt;&quot; &quot;&lt;&lt;L&lt;&lt;&quot; &quot;&lt;&lt;f&lt;&lt;&quot;\n&quot;;</span></span><br><span class="line">	<span class="type">int</span> k=<span class="built_in">exgcd</span>(z,L),p=L/k,q=z/k;<span class="comment">//!!!</span></span><br><span class="line"><span class="comment">//	cout&lt;&lt;k&lt;&lt;&quot;\n&quot;;</span></span><br><span class="line">	_x*=(f/k),_y*=(f/k);</span><br><span class="line"><span class="comment">//	cout&lt;&lt;p&lt;&lt;&quot; &quot;&lt;&lt;q&lt;&lt;&quot; &quot;&lt;&lt;_x&lt;&lt;&quot; &quot;&lt;&lt;_y&lt;&lt;&quot;\n&quot;;</span></span><br><span class="line">	<span class="keyword">if</span>(f%k)&#123;</span><br><span class="line">		cout&lt;&lt;<span class="string">&quot;Impossible&quot;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(_x&gt;<span class="number">0</span>)cout&lt;&lt;(_x<span class="number">-1</span>)%p+<span class="number">1</span>;</span><br><span class="line">		<span class="keyword">else</span> cout&lt;&lt;_x%p+p;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="例题：P1082">例题：<a target="_blank" rel="noopener" href="https://www.luogu.com/problem/P1082">P1082</a></h4>
+<p>水题。</p>
+<p>考虑式子 $ax \equiv 1\pmod b$，可以转换成 $ax-by=1$，由于题中说保证有解，故直接求 $x$ 的最小正整数解即可。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">int</span> x,y;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">exgcd</span><span class="params">(<span class="type">int</span> a,<span class="type">int</span> b)</span></span>&#123;</span><br><span class="line">	<span class="type">int</span> d=a;</span><br><span class="line">	<span class="keyword">if</span>(!b)x=<span class="number">1</span>,y=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">else</span> d=<span class="built_in">exgcd</span>(b,a%b),<span class="built_in">swap</span>(x,y),y-=a/b*x;</span><br><span class="line">	<span class="keyword">return</span> d;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>);</span><br><span class="line">	<span class="type">int</span> n,m;</span><br><span class="line">	cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">	<span class="type">int</span> d=<span class="built_in">exgcd</span>(n,m);</span><br><span class="line">	y=-y;</span><br><span class="line">	<span class="type">int</span> p=m/d,ans;</span><br><span class="line">	<span class="keyword">if</span>(x&gt;<span class="number">0</span>)ans=(x<span class="number">-1</span>)%p+<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">else</span> ans=x%p+p;</span><br><span class="line">	cout&lt;&lt;ans;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="例题：P2421">例题：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2421">P2421</a></h4>
+<p>较复杂的一道题。</p>
+<p>判断每个野人生存周期以内的两两的 exgcd 即可。</p>
+<p>然后由于没有单调性不能二分，直接枚举就行了。</p>
+<p>和 P1516 差不多。</p>
+<p>时间复杂度 $O(Mn^2\log c)$，随机打乱野人的遍历顺序之后应该能做到更优。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">int</span> x,y;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">exgcd</span><span class="params">(<span class="type">int</span> a,<span class="type">int</span> b)</span></span>&#123;</span><br><span class="line">	<span class="type">int</span> d=a;</span><br><span class="line">	<span class="keyword">if</span>(!b)x=<span class="number">1</span>,y=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">else</span> d=<span class="built_in">exgcd</span>(b,a%b),<span class="built_in">swap</span>(x,y),y-=a/b*x;</span><br><span class="line">	<span class="keyword">return</span> d;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> c[<span class="number">21</span>],p[<span class="number">21</span>],l[<span class="number">21</span>],n;</span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">check</span><span class="params">(<span class="type">int</span> L)</span></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;i;j++)&#123;</span><br><span class="line">			<span class="type">int</span> z=p[j]-p[i],f=c[i]-c[j];</span><br><span class="line">			<span class="keyword">if</span>(z&lt;<span class="number">0</span>)z=-z,f=-f;</span><br><span class="line">			<span class="keyword">if</span>(f==<span class="number">0</span>)<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">			<span class="type">int</span> d=<span class="built_in">exgcd</span>(z,L);</span><br><span class="line">			<span class="keyword">if</span>(f%d)<span class="keyword">continue</span>;</span><br><span class="line">			<span class="type">int</span> p=L/d,q=z/d;</span><br><span class="line">			x*=(f/d),y*=(f/d);</span><br><span class="line"><span class="comment">//			cout&lt;&lt;x&lt;&lt;&quot; &quot;&lt;&lt;p&lt;&lt;&quot; &quot;&lt;&lt;i&lt;&lt;&quot; &quot;&lt;&lt;j&lt;&lt;&quot; &quot;&lt;&lt;f&lt;&lt;&quot; &quot;&lt;&lt;d&lt;&lt;&quot;\n&quot;;</span></span><br><span class="line">			<span class="type">int</span> ans;</span><br><span class="line">			<span class="keyword">if</span>(x&gt;<span class="number">0</span>)ans=(x<span class="number">-1</span>)%p+<span class="number">1</span>;</span><br><span class="line">			<span class="keyword">else</span> ans=x%p+p;</span><br><span class="line">			<span class="keyword">if</span>(ans&lt;=l[i]&amp;&amp;ans&lt;=l[j])<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> maxc=<span class="number">-1</span>;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>);</span><br><span class="line">	cin&gt;&gt;n;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)cin&gt;&gt;c[i]&gt;&gt;p[i]&gt;&gt;l[i],maxc=<span class="built_in">max</span>(c[i],maxc);</span><br><span class="line">	<span class="keyword">for</span>(;;maxc++)<span class="keyword">if</span>(<span class="built_in">check</span>(maxc))&#123;</span><br><span class="line">		cout&lt;&lt;maxc;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="应用：UVA12775">应用：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/UVA12775">UVA12775</a></h4>
+<p>枚举每个 $C$，然后先求 $\operatorname{exgcd}(A,B)$，然后枚举每个 $Ax+By=P-iC$ 的解的数量即可。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Problem: Gift Dilemma</span></span><br><span class="line"><span class="comment">// Contest: Luogu</span></span><br><span class="line"><span class="comment">// URL: https://www.luogu.com.cn/problem/UVA12775</span></span><br><span class="line"><span class="comment">// Memory Limit: 0 MB</span></span><br><span class="line"><span class="comment">// Time Limit: 3000 ms</span></span><br><span class="line"><span class="comment">// </span></span><br><span class="line"><span class="comment">// Powered by CP Editor (https://cpeditor.org)</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> int long long</span></span><br><span class="line"><span class="type">int</span> T,a,b,c,p,x,y;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">exgcd</span><span class="params">(<span class="type">int</span> a,<span class="type">int</span> b)</span></span>&#123;</span><br><span class="line">	<span class="type">int</span> d=a;</span><br><span class="line">	<span class="keyword">if</span>(!b)x=<span class="number">1</span>,y=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">else</span> d=<span class="built_in">exgcd</span>(b,a%b),<span class="built_in">swap</span>(x,y),y-=a/b*x;</span><br><span class="line">	<span class="keyword">return</span> d;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>);</span><br><span class="line">	cin&gt;&gt;T;</span><br><span class="line">	<span class="type">int</span> Y=T;</span><br><span class="line">	<span class="keyword">while</span>(T--)&#123;</span><br><span class="line">		<span class="type">int</span> ans=<span class="number">0</span>;</span><br><span class="line">		cin&gt;&gt;a&gt;&gt;b&gt;&gt;c&gt;&gt;p;</span><br><span class="line">		<span class="type">int</span> d=<span class="built_in">exgcd</span>(a,b);</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i*c&lt;=p;i++)&#123;</span><br><span class="line">			<span class="keyword">if</span>((p-i*c)%d)<span class="keyword">continue</span>;</span><br><span class="line">			<span class="type">int</span> tx=x*(p-i*c)/d,ty=y*(p-i*c)/d;</span><br><span class="line">			<span class="type">int</span> p=b/d,q=a/d;</span><br><span class="line"><span class="comment">//			cout&lt;&lt;tx&lt;&lt;&quot; &quot;&lt;&lt;ty&lt;&lt;&quot; &quot;&lt;&lt;p&lt;&lt;&quot; &quot;&lt;&lt;q&lt;&lt;&quot;\n&quot;;</span></span><br><span class="line">			<span class="type">int</span> res=<span class="number">0</span>;</span><br><span class="line">			<span class="keyword">if</span>(tx&gt;=<span class="number">0</span>||tx%p==<span class="number">0</span>)res=tx%p;</span><br><span class="line">			<span class="keyword">else</span> res=tx%p+p;</span><br><span class="line">			res=(res-tx)/p;</span><br><span class="line">			ty-=res*q;</span><br><span class="line">			<span class="keyword">if</span>(ty&gt;=<span class="number">0</span>)ans+=ty/q+<span class="number">1</span>;</span><br><span class="line"><span class="comment">//			cout&lt;&lt;ty-res*q&lt;&lt;&quot; &quot;&lt;&lt;res&lt;&lt;&quot;\n&quot;;</span></span><br><span class="line">		&#125;</span><br><span class="line">		cout&lt;&lt;<span class="string">&quot;Case &quot;</span>&lt;&lt;Y-T&lt;&lt;<span class="string">&quot;: &quot;</span>&lt;&lt;ans&lt;&lt;<span class="string">&quot;\n&quot;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="应用：UVA10104">应用：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/UVA10104">UVA10104</a></h4>
+<p>不会证明这个结论，因此直接搬 tj 了。</p>
+<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/pi4uje7u.png" alt=""></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Problem: Euclid Problem</span></span><br><span class="line"><span class="comment">// Contest: Luogu</span></span><br><span class="line"><span class="comment">// URL: https://www.luogu.com.cn/problem/UVA10104</span></span><br><span class="line"><span class="comment">// Memory Limit: 0 MB</span></span><br><span class="line"><span class="comment">// Time Limit: 3000 ms</span></span><br><span class="line"><span class="comment">// </span></span><br><span class="line"><span class="comment">// Powered by CP Editor (https://cpeditor.org)</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">int</span> x,y;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">exgcd</span><span class="params">(<span class="type">int</span> a,<span class="type">int</span> b)</span></span>&#123;</span><br><span class="line">	<span class="type">int</span> d=a;</span><br><span class="line">	<span class="keyword">if</span>(!b)x=<span class="number">1</span>,y=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">else</span> d=<span class="built_in">exgcd</span>(b,a%b),<span class="built_in">swap</span>(x,y),y-=a/b*x;</span><br><span class="line">	<span class="keyword">return</span> d;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>);</span><br><span class="line">	<span class="type">int</span> a,b,gcd;</span><br><span class="line">	<span class="keyword">while</span>(cin&gt;&gt;a&gt;&gt;b)gcd=<span class="built_in">exgcd</span>(a,b),cout&lt;&lt;x&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;y&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;gcd&lt;&lt;<span class="string">&quot;\n&quot;</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="类欧几里得算法">类欧几里得算法</h2>
+<p>这个算法是用来在 $O(\log n)$ 的时间内计算下面三个函数：<br>
+$$<br>
+f(a,b,c,n)=\sum_{i=0}^n\left\lfloor\frac{ai+b}{c}\right\rfloor\<br>
+g(a,b,c,n)=\sum_{i=0}^ni\left\lfloor\frac{ai+b}{c}\right\rfloor\<br>
+h(a,b,c,n)=\sum_{i=0}<sup>n\left\lfloor\frac{ai+b}{c}\right\rfloor</sup>2<br>
+$$</p>
+<h3 id="推式子">推式子</h3>
+<p>然后开始艰难地推式子…</p>
+<p>先令 $s<sup>0(n)=n+1 , s</sup>1(n)=\frac{(n+1)n}{2}\ ,\ s^2(n)=\frac{n(n+1)(2n+1)}{6}$。</p>
+<p>对于 $a&gt;c \or b&gt;c$ 的情况：<br>
+$$<br>
+\begin{aligned}<br>
+f(a,b,c,n)&amp;=\sum_{i=0}^n\left\lfloor\frac{ai+b}{c}\right\rfloor\cr<br>
+&amp;=\sum_{i=0}^n\left(\left\lfloor\frac{(a\bmod c)i+b\bmod c}{c}\right\rfloor+\left\lfloor\frac{a}{c}\right\rfloor i+\left\lfloor\frac{b}{c}\right\rfloor\right)\cr<br>
+&amp;=\left\lfloor\frac{b}{c}\right\rfloor\times s^0(n)+\left\lfloor\frac{a}{c}\right\rfloor \times s^1(n)+f(a\bmod c,b\bmod c,c,n)\cr<br>
+g(a,b,c,n)&amp;=\sum_{i=0}^ni\left\lfloor\frac{ai+b}{c}\right\rfloor\cr<br>
+&amp;=\sum_{i=0}^ni\left(\left\lfloor\frac{(a\bmod c)i+b\bmod c}{c}\right\rfloor+\left\lfloor\frac{a}{c}\right\rfloor i+\left\lfloor\frac{b}{c}\right\rfloor\right)\cr<br>
+&amp;=\sum_{i=0}^n\left(\left\lfloor\frac{a}{c}\right\rfloor i^2+\left\lfloor\frac{b}{c}\right\rfloor i\right)+g(a\bmod c,b\bmod c,c,n)\cr<br>
+&amp;=\left\lfloor\frac{a}{c}\right\rfloor\times s^2(n)+\left\lfloor\frac{b}{c}\right\rfloor\times s^1(n)+g(a\bmod c,b\bmod c,c,n)\cr<br>
+h(a,b,c,n)&amp;=\sum_{i=0}<sup>n\left\lfloor\frac{ai+b}{c}\right\rfloor</sup>2\cr<br>
+&amp;=\sum_{i=0}^n\left(\left\lfloor\frac{(a\bmod c)i+b\bmod c}{c}\right\rfloor+\left\lfloor\frac{a}{c}\right\rfloor i+\left\lfloor\frac{b}{c}\right\rfloor\right)^2\cr<br>
+&amp;=h(a\bmod c,b\bmod c,c,n)+2\left\lfloor\frac{a}{c}\right\rfloor g(a\bmod c,b\bmod c,c,n)+2\left\lfloor\frac{b}{c}\right\rfloor f(a\bmod c,b\bmod c,c,n)+\sum_{i=0}<sup>n\left(\left\lfloor\frac{a}{c}\right\rfloor</sup>2 i<sup>2+\left\lfloor\frac{b}{c}\right\rfloor</sup>2+2\left\lfloor\frac{a}{c}\right\rfloor \left\lfloor\frac{b}{c}\right\rfloor i\right)\cr<br>
+&amp;=s^0(n)\times \left\lfloor\frac{b}{c}\right\rfloor<sup>2+s</sup>1(n)\times 2\left\lfloor\frac{a}{c}\right\rfloor\left\lfloor\frac{b}{c}\right\rfloor+s^2(n)\times \left\lfloor\frac{a}{c}\right\rfloor^2+h(a\bmod c,b\bmod c,c,n)+2\left\lfloor\frac{a}{c}\right\rfloor g(a\bmod c,b\bmod c,c,n)+2\left\lfloor\frac{b}{c}\right\rfloor f(a\bmod c,b\bmod c,c,n)<br>
+\end{aligned}<br>
+$$<br>
+作者的手已经打废了。/kk</p>
+<p>对于 $a&lt;c\and b&lt;c$ 的情况：</p>
+<p>先看三个式子同样要用到的东西：</p>
+<p>令 $\displaystyle m=\left\lfloor\frac{an+b}{c}\right\rfloor$。<br>
+$$<br>
+\begin{aligned}<br>
+\sum_{i=0}<sup>n\left[j&lt;\left\lfloor\frac{ai+b}{c}\right\rfloor\right]&amp;=\sum_{i=0}</sup>n\left[j+1\leq\frac{ai+b}{c}\right]\cr<br>
+&amp;=\sum_{i=0}^{n}\left[jc+c\leq ai+b\right]\cr<br>
+&amp;=\sum_{i=0}^{n}[ai\geq jc+c-b]\cr<br>
+&amp;=\sum_{i=0}^n[ai&gt;jc+c-b-1]\cr<br>
+&amp;=\sum_{i=0}^n\left[i&gt;\left\lfloor\frac{jc+c+b-1}{a}\right\rfloor\right]\cr<br>
+&amp;=n-\left\lfloor\frac{jc+c+b-1}{a}\right\rfloor<br>
+\end{aligned}<br>
+$$<br>
+然后逐个击破：<br>
+$$<br>
+\begin{aligned}<br>
+f(a,b,c,n)&amp;=\sum_{i=0}^n\left\lfloor\frac{ai+b}{c}\right\rfloor\cr<br>
+&amp;=\sum_{i=0}<sup>n\sum_{j=0}</sup>{\lfloor\frac{ai+b}{c}\rfloor-1}1\cr<br>
+&amp;=\sum_{i=0}<sup>n\sum_{j=0}</sup>{m-1}\left[j&lt;\left\lfloor\frac{ai+b}{c}\right\rfloor\right]\cr<br>
+&amp;=\sum_{j=0}<sup>{m-1}\sum_{i=0}</sup>n\left[j&lt;\left\lfloor\frac{ai+b}{c}\right\rfloor\right]\cr<br>
+&amp;=\sum_{j=0}^{m-1}\left(n-\left\lfloor\frac{jc+c+b-1}{a}\right\rfloor\right)\cr<br>
+&amp;=nm-f(c,c-b-1,a,m-1)\cr<br>
+g(a,b,c,n)&amp;=\sum_{i=0}^ni\left\lfloor\frac{ai+b}{c}\right\rfloor\cr<br>
+&amp;=\sum_{i=0}<sup>n\sum_{j=0}</sup>{\lfloor\frac{ai+b}{c}\rfloor-1}i\cr<br>
+&amp;=\sum_{i=0}<sup>n\sum_{j=0}</sup>{m-1}\left(\left[j&lt;\left\lfloor\frac{ai+b}{c}\right\rfloor\right]\times i\right)\cr<br>
+&amp;=\sum_{j=0}<sup>{m-1}\sum_{i=0}</sup>n\left(\left[j&lt;\left\lfloor\frac{ai+b}{c}\right\rfloor\right]\times i\right)\cr<br>
+&amp;=\sum_{j=0}<sup>{m-1}\sum_{i=0}</sup>n\left(\left[i&gt;\left\lfloor\frac{jc+c+b-1}{a}\right\rfloor\right]\times i\right)\cr<br>
+&amp;=\sum_{j=0}^{m-1}\frac{\left(n+\left\lfloor\frac{jc+c+b-1}{a}\right\rfloor+1\right)\times\left(n-\left\lfloor\frac{jc+c+b-1}{a}\right\rfloor\right)}{2}\cr<br>
+&amp;=\frac{\displaystyle\sum_{j=0}<sup>{m-1}\left(n</sup>2-\left\lfloor\frac{jc+c+b-1}{a}\right\rfloor^2+n-\left\lfloor\frac{jc+c+b-1}{a}\right\rfloor\right)}{2}\cr<br>
+&amp;=\frac{n(n+1)m-h(c,c-b-1,a,m-1)-f(c,c-b-1,a,m-1)}{2}\cr<br>
+h(a,b,c,n)&amp;=\sum_{i=0}<sup>n\left\lfloor\frac{ai+b}{c}\right\rfloor</sup>2\cr<br>
+&amp;=2\sum_{i=0}<sup>n\sum_{j=0}</sup>{\lfloor\frac{ai+b}{c}\rfloor-1}(j+1)-\sum_{i=0}^n\left\lfloor\frac{ai+b}{c}\right\rfloor\cr<br>
+&amp;=2\sum_{i=0}<sup>n\sum_{j=0}</sup>{m-1}\left(\left[j&lt;\left\lfloor\frac{ai+b}{c}\right\rfloor\right]\times (j+1)\right)-f(a,b,c,n)\cr<br>
+&amp;=2\sum_{j=0}<sup>{m-1}(j+1)\sum_{i=0}</sup>n\left[j&lt;\left\lfloor\frac{ai+b}{c}\right\rfloor\right]-f(a,b,c,n)\cr<br>
+&amp;=2\sum_{j=0}^{m-1}\left((j+1)\times \left(n-\left\lfloor\frac{jc+c+b-1}{a}\right\rfloor\right)\right)-f(a,b,c,n)\cr<br>
+&amp;=(m+1)mn-2\sum_{j=0}^{m-1}\left(j\left\lfloor\frac{jc+c+b-1}{a}\right\rfloor+\left\lfloor\frac{jc+c+b-1}{a}\right\rfloor\right)-f(a,b,c,n)\cr<br>
+&amp;=(m+1)mn-2g(c,c-b-1,a,m-1)-2f(c,c-b-1,a,m-1)-f(a,b,c,n)<br>
+\end{aligned}<br>
+$$<br>
+边界：<br>
+$$<br>
+\begin{aligned}<br>
+f(0,b,c,n)&amp;=s^0(n)\times \left\lfloor\frac{b}{c}\right\rfloor\cr<br>
+g(0,b,c,n)&amp;=s^1(n)\times \left\lfloor\frac{b}{c}\right\rfloor\cr<br>
+h(0,b,c,n)&amp;=s<sup>0(n)\times\left\lfloor\frac{b}{c}\right\rfloor</sup>2\cr<br>
+\end{aligned}<br>
+$$<br>
+写完这个东西就去复习 CSP 了。</p>
+<h3 id="板子题：P5170">板子题：P5170</h3>
+<p>没啥可说的，注意取模即可。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> int long long</span></span><br><span class="line"><span class="type">const</span> <span class="type">long</span> <span class="type">long</span> mod=<span class="number">998244353</span>;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">R</span>&#123;</span><br><span class="line">	<span class="type">int</span> f,g,h;</span><br><span class="line">&#125;ans;</span><br><span class="line"><span class="function">R <span class="title">getr</span><span class="params">(<span class="type">int</span> _f,<span class="type">int</span> _g,<span class="type">int</span> _h)</span></span>&#123;</span><br><span class="line">	R temp;</span><br><span class="line">	temp.f=_f;</span><br><span class="line">	temp.g=_g;</span><br><span class="line">	temp.h=_h;</span><br><span class="line">	<span class="keyword">return</span> temp;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> I2=<span class="number">499122177</span>,I6=<span class="number">166374059</span>;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">s0</span><span class="params">(<span class="type">int</span> k)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> k+<span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">s1</span><span class="params">(<span class="type">int</span> k)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> k*(k+<span class="number">1</span>)%mod*I2%mod;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">s2</span><span class="params">(<span class="type">int</span> k)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> k*(k+<span class="number">1</span>)%mod*(<span class="number">2</span>*k+<span class="number">1</span>)%mod*I6%mod;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">R <span class="title">simgcd</span><span class="params">(<span class="type">int</span> a,<span class="type">int</span> b,<span class="type">int</span> c,<span class="type">int</span> n)</span></span>&#123;</span><br><span class="line">	<span class="type">int</span> F=<span class="number">0</span>,G=<span class="number">0</span>,H=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">if</span>(a==<span class="number">0</span>)<span class="keyword">return</span> <span class="built_in">getr</span>((b/c)*<span class="built_in">s0</span>(n)%mod,(b/c)*<span class="built_in">s1</span>(n)%mod,(b/c)*(b/c)%mod*<span class="built_in">s0</span>(n)%mod);</span><br><span class="line">	R res;</span><br><span class="line">	<span class="keyword">if</span>(a&gt;=c||b&gt;=c)&#123;</span><br><span class="line">		res=<span class="built_in">simgcd</span>(a%c,b%c,c,n);</span><br><span class="line">		F=res.f+b/c*<span class="built_in">s0</span>(n)%mod+a/c*<span class="built_in">s1</span>(n)%mod;</span><br><span class="line">		G=res.g+a/c*<span class="built_in">s2</span>(n)%mod+b/c*<span class="built_in">s1</span>(n)%mod;</span><br><span class="line">		H=b/c*<span class="number">2</span>*res.f%mod+a/c*<span class="number">2</span>*res.g%mod+res.h+b/c*(b/c)%mod*<span class="built_in">s0</span>(n)%mod+b/c*(a/c)*<span class="number">2</span>%mod*<span class="built_in">s1</span>(n)%mod+(a/c)*(a/c)%mod*<span class="built_in">s2</span>(n)%mod;</span><br><span class="line">		<span class="keyword">return</span> <span class="built_in">getr</span>(F%mod,G%mod,H%mod);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="type">int</span> m=(a*n+b)/c;</span><br><span class="line">	res=<span class="built_in">simgcd</span>(c,c-b<span class="number">-1</span>,a,m<span class="number">-1</span>);</span><br><span class="line">	F=n*m%mod-res.f%mod;</span><br><span class="line">	G=(n*(n+<span class="number">1</span>)%mod*m%mod-res.h%mod-res.f%mod)*I2%mod;</span><br><span class="line">	H=(m+<span class="number">1</span>)*m%mod*n%mod+<span class="number">-2</span>*res.g%mod<span class="number">-2</span>*res.f%mod-F%mod;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">getr</span>((F%mod+mod)%mod,(G%mod+mod)%mod,(H%mod+mod)%mod);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>);</span><br><span class="line">	<span class="type">int</span> T,aa,bb,cc,nn;</span><br><span class="line">	cin&gt;&gt;T;</span><br><span class="line">	<span class="keyword">while</span>(T--)&#123;</span><br><span class="line">		cin&gt;&gt;nn&gt;&gt;aa&gt;&gt;bb&gt;&gt;cc;</span><br><span class="line">		ans=<span class="built_in">simgcd</span>(aa,bb,cc,nn);</span><br><span class="line">		cout&lt;&lt;(ans.f%mod)&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;(ans.h%mod)&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;(ans.g%mod)&lt;&lt;<span class="string">&quot;\n&quot;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="应用：P5171">应用：P5171</h3>
+<p>CSP 复习前的最后一道题。</p>
+<p>考虑分开讨论 $x,y$。</p>
+<p>之前好像有证明 $\gcd(a,b)=1$ 的特殊情况的式子。</p>
+<p>先讨论 $y$ 的范围：<br>
+$$<br>
+ax+by\leq c\Rightarrow by\leq c-ax\Rightarrow y\leq\left\lfloor\frac{c-ax}{b}\right\rfloor<br>
+$$<br>
+所以对于 $y$ ，合法的 $x$ 至多有 $\left\lfloor\frac{c-ax}{b}\right\rfloor+1$ 个。</p>
+<p>再来讨论 $x$ 的范围。考虑当 $y=0$ 的极限情况，$x$ 最大就是 $\lfloor\frac{c}{a}\rfloor$，所以 $x\in[0,\left\lfloor\frac{c}{a}\right\rfloor]$。</p>
+<p>所以式子列出来就是：<br>
+$$<br>
+\sum_{x=0}^{\left\lfloor\frac{c}{a}\right\rfloor}\left(\left\lfloor\frac{c-ax}{b}\right\rfloor+1\right)<br>
+$$<br>
+因为 $-a&lt;0$，要进行转化。考虑此时的 $x$ 和 $y$ 无论以哪个作为对象都能得到答案，所以此时的 $a,b$ 互换是没有影响的，所以可以将式子改写为：<br>
+$$<br>
+\sum_{x=0}<sup>{\left\lfloor\frac{c}{a}\right\rfloor}\left(\left\lfloor\frac{(b-a)x+c}{b}\right\rfloor-x\right)+s</sup>0\left(\left\lfloor\frac{c}{a}\right\rfloor\right)=\sum_{x=0}<sup>{\left\lfloor\frac{c}{a}\right\rfloor}\left\lfloor\frac{(b-a)x+c}{b}\right\rfloor-s</sup>1\left(\left\lfloor\frac{c}{a}\right\rfloor\right)+s^0\left(\left\lfloor\frac{c}{a}\right\rfloor\right)<br>
+$$<br>
+然后就可以求解了。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Problem: P5171 Earthquake</span></span><br><span class="line"><span class="comment">// Contest: Luogu</span></span><br><span class="line"><span class="comment">// URL: https://www.luogu.com.cn/problem/P5171</span></span><br><span class="line"><span class="comment">// Memory Limit: 125 MB</span></span><br><span class="line"><span class="comment">// Time Limit: 250 ms</span></span><br><span class="line"><span class="comment">// </span></span><br><span class="line"><span class="comment">// Powered by CP Editor (https://cpeditor.org)</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> int long long</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">s0</span><span class="params">(<span class="type">int</span> k)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> k+<span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">s1</span><span class="params">(<span class="type">int</span> k)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> k*(k+<span class="number">1</span>)/<span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">simgcd</span><span class="params">(<span class="type">int</span> a,<span class="type">int</span> b,<span class="type">int</span> c,<span class="type">int</span> n)</span></span>&#123;</span><br><span class="line">	<span class="type">int</span> res=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">if</span>(a&gt;=c||b&gt;=c)res+=<span class="built_in">s1</span>(n)*(a/c)+<span class="built_in">s0</span>(n)*(b/c),a%=c,b%=c;</span><br><span class="line">	<span class="keyword">if</span>(a==<span class="number">0</span>)<span class="keyword">return</span> <span class="built_in">s0</span>(n)*(b/c)+res;</span><br><span class="line">	<span class="type">int</span> m=(a*n+b)/c;</span><br><span class="line">	<span class="keyword">return</span> m*n-<span class="built_in">simgcd</span>(c,c-b<span class="number">-1</span>,a,m<span class="number">-1</span>)+res;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>);</span><br><span class="line">	<span class="type">int</span> A,B,C;</span><br><span class="line">	cin&gt;&gt;A&gt;&gt;B&gt;&gt;C;</span><br><span class="line">	<span class="keyword">if</span>(A&gt;B)<span class="built_in">swap</span>(A,B);</span><br><span class="line">	<span class="type">int</span> ans=<span class="built_in">simgcd</span>(B-A,C,B,C/A);</span><br><span class="line">	ans-=<span class="built_in">s1</span>(C/A)-C/A;</span><br><span class="line">	cout&lt;&lt;ans+<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="鸽">鸽</h3>
+<p>这里应该还有 $3$ 道类欧没有写，CSP 回来之后再写，祝 RP++！</p>
+<p>没写的：AT_abc283_h，P5172，P5179。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a target="_blank" rel="noopener" href="https://www.xyxw.cf">Xingyu</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://xyxw.eu.org/2023/Basic-Mathmatics-Notes/">https://xyxw.eu.org/2023/Basic-Mathmatics-Notes/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://xyxw.eu.org" target="_blank">This is xingyu.</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/OI/">OI</a></div><div class="post_share"><div class="social-share" data-image="https://s1.ax1x.com/2023/01/31/pSwL9sg.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2023/search-Notes/"><img class="next-cover" src="https://s1.ax1x.com/2023/01/31/pSwL9sg.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">search-Notes</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2023/1001%E5%91%A8%E6%80%BB%E7%BB%93/" title="1001周总结"><img class="cover" src="https://s1.ax1x.com/2023/01/31/pSwL9sg.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-10-01</div><div class="title">1001周总结</div></div></a></div><div><a href="/2023/20230924%E5%91%A8%E6%80%BB%E7%BB%93/" title="20230924周总结"><img class="cover" src="https://s1.ax1x.com/2023/01/31/pSwL9sg.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-10-01</div><div class="title">20230924周总结</div></div></a></div><div><a href="/2023/Tree-Theory-Notes/" title="Tree-Theory-Notes"><img class="cover" src="https://s1.ax1x.com/2023/01/31/pSwL9sg.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-10-07</div><div class="title">Tree-Theory-Notes</div></div></a></div><div><a href="/2023/Splay-and-LCT/" title="Splay and LCT"><img class="cover" src="https://s1.ax1x.com/2023/01/31/pSwL9sg.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-10-01</div><div class="title">Splay and LCT</div></div></a></div><div><a href="/2023/tree-mo-s-algo-Notes/" title="tree-mo&#39;s-algo-Notes"><img class="cover" src="https://s1.ax1x.com/2023/01/31/pSwL9sg.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-10-12</div><div class="title">tree-mo&#39;s-algo-Notes</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://s1.ax1x.com/2023/01/31/pSwL9sg.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Xingyu</div><div class="author-info__description">屑初三一个，学习为重</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">26</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xingyu-xuan"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/xingyu-xuan" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:xingyu_xuan422435@163.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://space.bilibili.com/1581147228" target="_blank" title="Bilibili"><i class="fab fa-bilibili"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This blog belongs to xingyu. Welcome for your coming! Wish you have a good time! You can also join the QQ group 633649158 for more info.</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">鲜花</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">欧几里得</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95"><span class="toc-number">2.1.</span> <span class="toc-text">欧几里得算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%A9%E5%B1%95%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95%EF%BC%88exgcd%EF%BC%89"><span class="toc-number">2.2.</span> <span class="toc-text">扩展欧几里得算法（exgcd）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A3%B4%E8%9C%80%E5%AE%9A%E7%90%86"><span class="toc-number">2.2.1.</span> <span class="toc-text">裴蜀定理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9A%E7%90%86"><span class="toc-number">2.2.1.1.</span> <span class="toc-text">定理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%81%E6%98%8E"><span class="toc-number">2.2.1.2.</span> <span class="toc-text">证明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98%EF%BC%9AP4549"><span class="toc-number">2.2.1.3.</span> <span class="toc-text">例题：P4549</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%EF%BC%9ACF510D"><span class="toc-number">2.2.1.4.</span> <span class="toc-text">应用：CF510D</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%9B%E4%B8%80%E6%AD%A5%E7%BB%93%E8%AE%BA"><span class="toc-number">2.2.1.5.</span> <span class="toc-text">进一步结论</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%A6%E4%B8%80%E7%A7%8D%E8%A7%A3%E9%87%8A"><span class="toc-number">2.2.1.6.</span> <span class="toc-text">另一种解释</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#exgcd"><span class="toc-number">2.2.2.</span> <span class="toc-text">exgcd</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9E%84%E9%80%A0%E8%BF%87%E7%A8%8B"><span class="toc-number">2.2.2.1.</span> <span class="toc-text">构造过程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98%EF%BC%9AP5656"><span class="toc-number">2.2.2.2.</span> <span class="toc-text">例题：P5656</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98%EF%BC%9AP1516"><span class="toc-number">2.2.2.3.</span> <span class="toc-text">例题：P1516</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98%EF%BC%9AP1082"><span class="toc-number">2.2.2.4.</span> <span class="toc-text">例题：P1082</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98%EF%BC%9AP2421"><span class="toc-number">2.2.2.5.</span> <span class="toc-text">例题：P2421</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%EF%BC%9AUVA12775"><span class="toc-number">2.2.2.6.</span> <span class="toc-text">应用：UVA12775</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%EF%BC%9AUVA10104"><span class="toc-number">2.2.2.7.</span> <span class="toc-text">应用：UVA10104</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95"><span class="toc-number">2.3.</span> <span class="toc-text">类欧几里得算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A8%E5%BC%8F%E5%AD%90"><span class="toc-number">2.3.1.</span> <span class="toc-text">推式子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%BF%E5%AD%90%E9%A2%98%EF%BC%9AP5170"><span class="toc-number">2.3.2.</span> <span class="toc-text">板子题：P5170</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%EF%BC%9AP5171"><span class="toc-number">2.3.3.</span> <span class="toc-text">应用：P5171</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%B8%BD"><span class="toc-number">2.3.4.</span> <span class="toc-text">鸽</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/Basic-Mathmatics-Notes/" title="Basic-Mathmatics-Notes"><img src="https://s1.ax1x.com/2023/01/31/pSwL9sg.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Basic-Mathmatics-Notes"/></a><div class="content"><a class="title" href="/2023/Basic-Mathmatics-Notes/" title="Basic-Mathmatics-Notes">Basic-Mathmatics-Notes</a><time datetime="2023-10-16T02:29:16.000Z" title="发表于 2023-10-16 10:29:16">2023-10-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/search-Notes/" title="search-Notes"><img src="https://s1.ax1x.com/2023/01/31/pSwL9sg.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="search-Notes"/></a><div class="content"><a class="title" href="/2023/search-Notes/" title="search-Notes">search-Notes</a><time datetime="2023-10-16T02:28:39.000Z" title="发表于 2023-10-16 10:28:39">2023-10-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/tree-mo-s-algo-Notes/" title="tree-mo's-algo-Notes"><img src="https://s1.ax1x.com/2023/01/31/pSwL9sg.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="tree-mo's-algo-Notes"/></a><div class="content"><a class="title" href="/2023/tree-mo-s-algo-Notes/" title="tree-mo's-algo-Notes">tree-mo's-algo-Notes</a><time datetime="2023-10-12T12:24:53.000Z" title="发表于 2023-10-12 20:24:53">2023-10-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/Tree-Theory-Notes/" title="Tree-Theory-Notes"><img src="https://s1.ax1x.com/2023/01/31/pSwL9sg.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Tree-Theory-Notes"/></a><div class="content"><a class="title" href="/2023/Tree-Theory-Notes/" title="Tree-Theory-Notes">Tree-Theory-Notes</a><time datetime="2023-10-07T09:06:07.000Z" title="发表于 2023-10-07 17:06:07">2023-10-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/1001%E5%91%A8%E6%80%BB%E7%BB%93/" title="1001周总结"><img src="https://s1.ax1x.com/2023/01/31/pSwL9sg.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="1001周总结"/></a><div class="content"><a class="title" href="/2023/1001%E5%91%A8%E6%80%BB%E7%BB%93/" title="1001周总结">1001周总结</a><time datetime="2023-10-01T07:12:00.000Z" title="发表于 2023-10-01 15:12:00">2023-10-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/20230924%E5%91%A8%E6%80%BB%E7%BB%93/" title="20230924周总结"><img src="https://s1.ax1x.com/2023/01/31/pSwL9sg.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="20230924周总结"/></a><div class="content"><a class="title" href="/2023/20230924%E5%91%A8%E6%80%BB%E7%BB%93/" title="20230924周总结">20230924周总结</a><time datetime="2023-10-01T07:11:00.000Z" title="发表于 2023-10-01 15:11:00">2023-10-01</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://s1.ax1x.com/2023/01/31/pSwL9sg.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Xingyu</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">I wish you to become your own sun, no need to rely on who's light.<p><a target="_blank" href="https://vercel.com/ "><img src="https://img.shields.io/badge/Hosted-Vercel-brightgreen?style=flat&logo=Vercel" title="本站默认线路托管于Vercel"></a>&nbsp;<a target="_blank" href="https://github.com/"><img src="https://img.shields.io/badge/Source-Github-d021d6?style=flat&logo=GitHub" title="本站项目由Github托管"></a></p></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        insertScript: [200, () => {
+          document.querySelectorAll('mjx-container').forEach(node => {
+            if (node.hasAttribute('display')) {
+              btf.wrap(node, 'div', { class: 'mathjax-overflow' })
+            } else {
+              btf.wrap(node, 'span', { class: 'mathjax-overflow' })
+            }
+          });
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script><script>(()=>{
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'https://xyxwv.eu.org',
+      region: '',
+      onCommentLoaded: function () {
+        btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      }
+    }, null))
+  }
+
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://xyxwv.eu.org',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(function (res) {
+      countELement.innerText = res[0].count
+    }).catch(function (err) {
+      console.error(err);
+    });
+  }
+
+  const runFn = () => {
+    init()
+    
+  }
+
+  const loadTwikoo = () => {
+    if (typeof twikoo === 'object') {
+      setTimeout(runFn,0)
+      return
+    } 
+    getScript('https://cdn.bootcdn.net/ajax/libs/twikoo/1.6.22/twikoo.all.min.js').then(runFn)
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo()
+  } else {
+    window.loadOtherComment = () => {
+      loadTwikoo()
+    }
+  }
+})()</script></div><canvas id="universe"></canvas><script defer src="/js/universe.js"></script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-show-text.min.js" data-mobile="true" data-text="You,are,filled,with,full,of,determination" data-fontsize="15px" data-random="false" async="async"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script data-pjax>
+  function butterfly_clock_anzhiyu_injector_config(){
+    var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+    var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img class="entered loading" id="card-clock-loading" src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading"/></div></div></div></div></div>';
+    console.log('已挂载butterfly_clock_anzhiyu')
+    if(parent_div_git) {
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var qweather_key = 'b16a1fa0e63c46a4b8f28abfb06ae3fe';
+  var gaud_map_key = 'e2b04289e870b005374ee030148d64fd&s=rsv3';
+  var baidu_ak_key = 'undefined';
+  var flag = 0;
+  var clock_rectangle = '112.982279,28.19409';
+  var clock_default_rectangle_enable = 'false';
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  </script><script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script><script data-pjax src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.js"></script><!-- hexo injector body_end end --></body></html>
