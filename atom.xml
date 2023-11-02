@@ -3,11 +3,11 @@
   <title>This is xingyu.</title>
   
   <subtitle>要成为光，因为有怕黑的人</subtitle>
-  <link href="http://eltaos.top/atom.xml" rel="self"/>
+  <link href="http://blog.eltaos.top/atom.xml" rel="self"/>
   
-  <link href="http://eltaos.top/"/>
+  <link href="http://blog.eltaos.top/"/>
   <updated>2023-11-01T03:48:47.636Z</updated>
-  <id>http://eltaos.top/</id>
+  <id>http://blog.eltaos.top/</id>
   
   <author>
     <name>Xingyu</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Basic-Mathmatics-Notes</title>
-    <link href="http://eltaos.top/2023/Basic-Mathmatics-Notes/"/>
-    <id>http://eltaos.top/2023/Basic-Mathmatics-Notes/</id>
+    <link href="http://blog.eltaos.top/2023/Basic-Mathmatics-Notes/"/>
+    <id>http://blog.eltaos.top/2023/Basic-Mathmatics-Notes/</id>
     <published>2023-10-31T16:00:00.000Z</published>
     <updated>2023-11-01T03:48:47.636Z</updated>
     
@@ -40,17 +40,17 @@ $$&lt;br&gt;
     
     
     
-    <category term="OI" scheme="http://eltaos.top/categories/OI/"/>
+    <category term="OI" scheme="http://blog.eltaos.top/categories/OI/"/>
     
     
-    <category term="OI" scheme="http://eltaos.top/tags/OI/"/>
+    <category term="OI" scheme="http://blog.eltaos.top/tags/OI/"/>
     
   </entry>
   
   <entry>
     <title>search-Notes</title>
-    <link href="http://eltaos.top/2023/search-Notes/"/>
-    <id>http://eltaos.top/2023/search-Notes/</id>
+    <link href="http://blog.eltaos.top/2023/search-Notes/"/>
+    <id>http://blog.eltaos.top/2023/search-Notes/</id>
     <published>2023-10-16T02:28:39.000Z</published>
     <updated>2023-10-16T02:28:39.110Z</updated>
     
@@ -62,8 +62,8 @@ $$&lt;br&gt;
   
   <entry>
     <title>tree-mo&#39;s-algo-Notes</title>
-    <link href="http://eltaos.top/2023/tree-mo-s-algo-Notes/"/>
-    <id>http://eltaos.top/2023/tree-mo-s-algo-Notes/</id>
+    <link href="http://blog.eltaos.top/2023/tree-mo-s-algo-Notes/"/>
+    <id>http://blog.eltaos.top/2023/tree-mo-s-algo-Notes/</id>
     <published>2023-10-12T12:24:53.000Z</published>
     <updated>2023-10-12T12:27:33.277Z</updated>
     
@@ -80,17 +80,17 @@ $$&lt;br&gt;
     
     
     
-    <category term="OI" scheme="http://eltaos.top/categories/OI/"/>
+    <category term="OI" scheme="http://blog.eltaos.top/categories/OI/"/>
     
     
-    <category term="OI" scheme="http://eltaos.top/tags/OI/"/>
+    <category term="OI" scheme="http://blog.eltaos.top/tags/OI/"/>
     
   </entry>
   
   <entry>
     <title>Tree-Theory-Notes</title>
-    <link href="http://eltaos.top/2023/Tree-Theory-Notes/"/>
-    <id>http://eltaos.top/2023/Tree-Theory-Notes/</id>
+    <link href="http://blog.eltaos.top/2023/Tree-Theory-Notes/"/>
+    <id>http://blog.eltaos.top/2023/Tree-Theory-Notes/</id>
     <published>2023-10-07T09:06:07.000Z</published>
     <updated>2023-10-26T07:04:44.059Z</updated>
     
@@ -109,17 +109,17 @@ $$&lt;br&gt;
     
     
     
-    <category term="OI" scheme="http://eltaos.top/categories/OI/"/>
+    <category term="OI" scheme="http://blog.eltaos.top/categories/OI/"/>
     
     
-    <category term="OI" scheme="http://eltaos.top/tags/OI/"/>
+    <category term="OI" scheme="http://blog.eltaos.top/tags/OI/"/>
     
   </entry>
   
   <entry>
     <title>1001周总结</title>
-    <link href="http://eltaos.top/2023/1001%E5%91%A8%E6%80%BB%E7%BB%93/"/>
-    <id>http://eltaos.top/2023/1001%E5%91%A8%E6%80%BB%E7%BB%93/</id>
+    <link href="http://blog.eltaos.top/2023/1001%E5%91%A8%E6%80%BB%E7%BB%93/"/>
+    <id>http://blog.eltaos.top/2023/1001%E5%91%A8%E6%80%BB%E7%BB%93/</id>
     <published>2023-10-01T07:12:00.000Z</published>
     <updated>2023-10-01T07:12:42.774Z</updated>
     
@@ -137,17 +137,17 @@ $$&lt;br&gt;
     
     
     
-    <category term="OI" scheme="http://eltaos.top/categories/OI/"/>
+    <category term="OI" scheme="http://blog.eltaos.top/categories/OI/"/>
     
     
-    <category term="OI" scheme="http://eltaos.top/tags/OI/"/>
+    <category term="OI" scheme="http://blog.eltaos.top/tags/OI/"/>
     
   </entry>
   
   <entry>
     <title>20230924周总结</title>
-    <link href="http://eltaos.top/2023/20230924%E5%91%A8%E6%80%BB%E7%BB%93/"/>
-    <id>http://eltaos.top/2023/20230924%E5%91%A8%E6%80%BB%E7%BB%93/</id>
+    <link href="http://blog.eltaos.top/2023/20230924%E5%91%A8%E6%80%BB%E7%BB%93/"/>
+    <id>http://blog.eltaos.top/2023/20230924%E5%91%A8%E6%80%BB%E7%BB%93/</id>
     <published>2023-10-01T07:11:00.000Z</published>
     <updated>2023-10-01T07:11:46.290Z</updated>
     
@@ -161,17 +161,17 @@ $$&lt;br&gt;
     
     
     
-    <category term="OI" scheme="http://eltaos.top/categories/OI/"/>
+    <category term="OI" scheme="http://blog.eltaos.top/categories/OI/"/>
     
     
-    <category term="OI" scheme="http://eltaos.top/tags/OI/"/>
+    <category term="OI" scheme="http://blog.eltaos.top/tags/OI/"/>
     
   </entry>
   
   <entry>
     <title>Splay and LCT</title>
-    <link href="http://eltaos.top/2023/Splay-and-LCT/"/>
-    <id>http://eltaos.top/2023/Splay-and-LCT/</id>
+    <link href="http://blog.eltaos.top/2023/Splay-and-LCT/"/>
+    <id>http://blog.eltaos.top/2023/Splay-and-LCT/</id>
     <published>2023-10-01T07:08:00.000Z</published>
     <updated>2020-01-19T07:13:14.397Z</updated>
     
@@ -188,17 +188,17 @@ $$&lt;br&gt;
     
     
     
-    <category term="OI" scheme="http://eltaos.top/categories/OI/"/>
+    <category term="OI" scheme="http://blog.eltaos.top/categories/OI/"/>
     
     
-    <category term="OI" scheme="http://eltaos.top/tags/OI/"/>
+    <category term="OI" scheme="http://blog.eltaos.top/tags/OI/"/>
     
   </entry>
   
   <entry>
     <title>SP22343-NORMA2-Norma</title>
-    <link href="http://eltaos.top/2023/SP22343-NORMA2-Norma/"/>
-    <id>http://eltaos.top/2023/SP22343-NORMA2-Norma/</id>
+    <link href="http://blog.eltaos.top/2023/SP22343-NORMA2-Norma/"/>
+    <id>http://blog.eltaos.top/2023/SP22343-NORMA2-Norma/</id>
     <published>2023-08-28T14:58:45.000Z</published>
     <updated>2023-10-01T07:09:39.086Z</updated>
     
@@ -215,17 +215,17 @@ $$&lt;br&gt;
     
     
     
-    <category term="OI" scheme="http://eltaos.top/categories/OI/"/>
+    <category term="OI" scheme="http://blog.eltaos.top/categories/OI/"/>
     
     
-    <category term="题解" scheme="http://eltaos.top/tags/%E9%A2%98%E8%A7%A3/"/>
+    <category term="题解" scheme="http://blog.eltaos.top/tags/%E9%A2%98%E8%A7%A3/"/>
     
   </entry>
   
   <entry>
     <title>P2533 [AHOI2012] 信号塔</title>
-    <link href="http://eltaos.top/2023/P2533-AHOI2012-%E4%BF%A1%E5%8F%B7%E5%A1%94/"/>
-    <id>http://eltaos.top/2023/P2533-AHOI2012-%E4%BF%A1%E5%8F%B7%E5%A1%94/</id>
+    <link href="http://blog.eltaos.top/2023/P2533-AHOI2012-%E4%BF%A1%E5%8F%B7%E5%A1%94/"/>
+    <id>http://blog.eltaos.top/2023/P2533-AHOI2012-%E4%BF%A1%E5%8F%B7%E5%A1%94/</id>
     <published>2023-08-28T14:44:52.000Z</published>
     <updated>2023-10-01T07:10:46.496Z</updated>
     
@@ -241,17 +241,17 @@ $$&lt;br&gt;
     
     
     
-    <category term="OI" scheme="http://eltaos.top/categories/OI/"/>
+    <category term="OI" scheme="http://blog.eltaos.top/categories/OI/"/>
     
     
-    <category term="题解" scheme="http://eltaos.top/tags/%E9%A2%98%E8%A7%A3/"/>
+    <category term="题解" scheme="http://blog.eltaos.top/tags/%E9%A2%98%E8%A7%A3/"/>
     
   </entry>
   
   <entry>
     <title>Tree-Summing-UVA112</title>
-    <link href="http://eltaos.top/2023/Tree-Summing-UVA112/"/>
-    <id>http://eltaos.top/2023/Tree-Summing-UVA112/</id>
+    <link href="http://blog.eltaos.top/2023/Tree-Summing-UVA112/"/>
+    <id>http://blog.eltaos.top/2023/Tree-Summing-UVA112/</id>
     <published>2023-08-28T14:42:09.000Z</published>
     <updated>2020-01-19T07:13:30.301Z</updated>
     
@@ -267,17 +267,17 @@ $$&lt;br&gt;
     
     
     
-    <category term="OI" scheme="http://eltaos.top/categories/OI/"/>
+    <category term="OI" scheme="http://blog.eltaos.top/categories/OI/"/>
     
     
-    <category term="题解" scheme="http://eltaos.top/tags/%E9%A2%98%E8%A7%A3/"/>
+    <category term="题解" scheme="http://blog.eltaos.top/tags/%E9%A2%98%E8%A7%A3/"/>
     
   </entry>
   
   <entry>
     <title>P8734 [蓝桥杯 2020 国 A] 奇偶覆盖</title>
-    <link href="http://eltaos.top/2023/P8734-%E8%93%9D%E6%A1%A5%E6%9D%AF-2020-%E5%9B%BD-A-%E5%A5%87%E5%81%B6%E8%A6%86%E7%9B%96/"/>
-    <id>http://eltaos.top/2023/P8734-%E8%93%9D%E6%A1%A5%E6%9D%AF-2020-%E5%9B%BD-A-%E5%A5%87%E5%81%B6%E8%A6%86%E7%9B%96/</id>
+    <link href="http://blog.eltaos.top/2023/P8734-%E8%93%9D%E6%A1%A5%E6%9D%AF-2020-%E5%9B%BD-A-%E5%A5%87%E5%81%B6%E8%A6%86%E7%9B%96/"/>
+    <id>http://blog.eltaos.top/2023/P8734-%E8%93%9D%E6%A1%A5%E6%9D%AF-2020-%E5%9B%BD-A-%E5%A5%87%E5%81%B6%E8%A6%86%E7%9B%96/</id>
     <published>2023-08-28T14:28:58.000Z</published>
     <updated>2023-10-01T07:10:21.831Z</updated>
     
@@ -294,17 +294,17 @@ $$&lt;br&gt;
     
     
     
-    <category term="OI" scheme="http://eltaos.top/categories/OI/"/>
+    <category term="OI" scheme="http://blog.eltaos.top/categories/OI/"/>
     
     
-    <category term="题解" scheme="http://eltaos.top/tags/%E9%A2%98%E8%A7%A3/"/>
+    <category term="题解" scheme="http://blog.eltaos.top/tags/%E9%A2%98%E8%A7%A3/"/>
     
   </entry>
   
   <entry>
     <title>四月天</title>
-    <link href="http://eltaos.top/2023/17/"/>
-    <id>http://eltaos.top/2023/17/</id>
+    <link href="http://blog.eltaos.top/2023/17/"/>
+    <id>http://blog.eltaos.top/2023/17/</id>
     <published>2023-04-13T15:40:00.000Z</published>
     <updated>2023-09-27T02:33:50.618Z</updated>
     
@@ -315,19 +315,19 @@ $$&lt;br&gt;
     
     
     
-    <category term="关于我的琐碎小事" scheme="http://eltaos.top/categories/%E5%85%B3%E4%BA%8E%E6%88%91%E7%9A%84%E7%90%90%E7%A2%8E%E5%B0%8F%E4%BA%8B/"/>
+    <category term="关于我的琐碎小事" scheme="http://blog.eltaos.top/categories/%E5%85%B3%E4%BA%8E%E6%88%91%E7%9A%84%E7%90%90%E7%A2%8E%E5%B0%8F%E4%BA%8B/"/>
     
     
-    <category term="学习" scheme="http://eltaos.top/tags/%E5%AD%A6%E4%B9%A0/"/>
+    <category term="学习" scheme="http://blog.eltaos.top/tags/%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="随笔" scheme="http://eltaos.top/tags/%E9%9A%8F%E7%AC%94/"/>
+    <category term="随笔" scheme="http://blog.eltaos.top/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
   <entry>
     <title>步入初三下的感想</title>
-    <link href="http://eltaos.top/2023/16/"/>
-    <id>http://eltaos.top/2023/16/</id>
+    <link href="http://blog.eltaos.top/2023/16/"/>
+    <id>http://blog.eltaos.top/2023/16/</id>
     <published>2023-02-12T03:47:45.000Z</published>
     <updated>2023-09-27T02:32:48.879Z</updated>
     
@@ -338,17 +338,17 @@ $$&lt;br&gt;
     
     
     
-    <category term="关于我的琐碎小事" scheme="http://eltaos.top/categories/%E5%85%B3%E4%BA%8E%E6%88%91%E7%9A%84%E7%90%90%E7%A2%8E%E5%B0%8F%E4%BA%8B/"/>
+    <category term="关于我的琐碎小事" scheme="http://blog.eltaos.top/categories/%E5%85%B3%E4%BA%8E%E6%88%91%E7%9A%84%E7%90%90%E7%A2%8E%E5%B0%8F%E4%BA%8B/"/>
     
     
-    <category term="学习" scheme="http://eltaos.top/tags/%E5%AD%A6%E4%B9%A0/"/>
+    <category term="学习" scheme="http://blog.eltaos.top/tags/%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
   <entry>
     <title>RGB常用颜色对照表</title>
-    <link href="http://eltaos.top/2023/15/"/>
-    <id>http://eltaos.top/2023/15/</id>
+    <link href="http://blog.eltaos.top/2023/15/"/>
+    <id>http://blog.eltaos.top/2023/15/</id>
     <published>2023-02-01T00:51:21.000Z</published>
     <updated>2023-02-01T03:00:58.018Z</updated>
     
@@ -359,17 +359,17 @@ $$&lt;br&gt;
     
     
     
-    <category term="html" scheme="http://eltaos.top/categories/html/"/>
+    <category term="html" scheme="http://blog.eltaos.top/categories/html/"/>
     
     
-    <category term="网站" scheme="http://eltaos.top/tags/%E7%BD%91%E7%AB%99/"/>
+    <category term="网站" scheme="http://blog.eltaos.top/tags/%E7%BD%91%E7%AB%99/"/>
     
   </entry>
   
   <entry>
     <title>更新说明&amp;预告</title>
-    <link href="http://eltaos.top/2023/14/"/>
-    <id>http://eltaos.top/2023/14/</id>
+    <link href="http://blog.eltaos.top/2023/14/"/>
+    <id>http://blog.eltaos.top/2023/14/</id>
     <published>2023-01-28T14:59:52.000Z</published>
     <updated>2023-04-16T02:46:06.243Z</updated>
     
@@ -390,15 +390,15 @@ $$&lt;br&gt;
     
     
     
-    <category term="网站公告" scheme="http://eltaos.top/categories/%E7%BD%91%E7%AB%99%E5%85%AC%E5%91%8A/"/>
+    <category term="网站公告" scheme="http://blog.eltaos.top/categories/%E7%BD%91%E7%AB%99%E5%85%AC%E5%91%8A/"/>
     
     
   </entry>
   
   <entry>
     <title>随笔</title>
-    <link href="http://eltaos.top/2022/13/"/>
-    <id>http://eltaos.top/2022/13/</id>
+    <link href="http://blog.eltaos.top/2022/13/"/>
+    <id>http://blog.eltaos.top/2022/13/</id>
     <published>2022-12-31T00:36:41.000Z</published>
     <updated>2023-04-02T04:50:57.618Z</updated>
     
@@ -409,17 +409,17 @@ $$&lt;br&gt;
     
     
     
-    <category term="关于我的琐碎小事" scheme="http://eltaos.top/categories/%E5%85%B3%E4%BA%8E%E6%88%91%E7%9A%84%E7%90%90%E7%A2%8E%E5%B0%8F%E4%BA%8B/"/>
+    <category term="关于我的琐碎小事" scheme="http://blog.eltaos.top/categories/%E5%85%B3%E4%BA%8E%E6%88%91%E7%9A%84%E7%90%90%E7%A2%8E%E5%B0%8F%E4%BA%8B/"/>
     
     
-    <category term="随笔" scheme="http://eltaos.top/tags/%E9%9A%8F%E7%AC%94/"/>
+    <category term="随笔" scheme="http://blog.eltaos.top/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
   <entry>
     <title>关于我对异性感情的思考</title>
-    <link href="http://eltaos.top/2022/12/"/>
-    <id>http://eltaos.top/2022/12/</id>
+    <link href="http://blog.eltaos.top/2022/12/"/>
+    <id>http://blog.eltaos.top/2022/12/</id>
     <published>2022-12-24T00:44:44.000Z</published>
     <updated>2020-01-19T07:16:35.820Z</updated>
     
@@ -430,17 +430,17 @@ $$&lt;br&gt;
     
     
     
-    <category term="我对一些事物的思考" scheme="http://eltaos.top/categories/%E6%88%91%E5%AF%B9%E4%B8%80%E4%BA%9B%E4%BA%8B%E7%89%A9%E7%9A%84%E6%80%9D%E8%80%83/"/>
+    <category term="我对一些事物的思考" scheme="http://blog.eltaos.top/categories/%E6%88%91%E5%AF%B9%E4%B8%80%E4%BA%9B%E4%BA%8B%E7%89%A9%E7%9A%84%E6%80%9D%E8%80%83/"/>
     
     
-    <category term="感情" scheme="http://eltaos.top/tags/%E6%84%9F%E6%83%85/"/>
+    <category term="感情" scheme="http://blog.eltaos.top/tags/%E6%84%9F%E6%83%85/"/>
     
   </entry>
   
   <entry>
     <title>12月月考的一些感想</title>
-    <link href="http://eltaos.top/2022/10/"/>
-    <id>http://eltaos.top/2022/10/</id>
+    <link href="http://blog.eltaos.top/2022/10/"/>
+    <id>http://blog.eltaos.top/2022/10/</id>
     <published>2022-11-30T14:04:07.000Z</published>
     <updated>2023-01-31T01:26:48.511Z</updated>
     
@@ -451,19 +451,19 @@ $$&lt;br&gt;
     
     
     
-    <category term="关于我的学习" scheme="http://eltaos.top/categories/%E5%85%B3%E4%BA%8E%E6%88%91%E7%9A%84%E5%AD%A6%E4%B9%A0/"/>
+    <category term="关于我的学习" scheme="http://blog.eltaos.top/categories/%E5%85%B3%E4%BA%8E%E6%88%91%E7%9A%84%E5%AD%A6%E4%B9%A0/"/>
     
     
-    <category term="学习" scheme="http://eltaos.top/tags/%E5%AD%A6%E4%B9%A0/"/>
+    <category term="学习" scheme="http://blog.eltaos.top/tags/%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="考试" scheme="http://eltaos.top/tags/%E8%80%83%E8%AF%95/"/>
+    <category term="考试" scheme="http://blog.eltaos.top/tags/%E8%80%83%E8%AF%95/"/>
     
   </entry>
   
   <entry>
     <title>关于冷漠的思考</title>
-    <link href="http://eltaos.top/2022/9/"/>
-    <id>http://eltaos.top/2022/9/</id>
+    <link href="http://blog.eltaos.top/2022/9/"/>
+    <id>http://blog.eltaos.top/2022/9/</id>
     <published>2022-11-26T01:22:05.000Z</published>
     <updated>2023-09-27T02:31:03.711Z</updated>
     
@@ -474,21 +474,21 @@ $$&lt;br&gt;
     
     
     
-    <category term="我对一些事物的思考" scheme="http://eltaos.top/categories/%E6%88%91%E5%AF%B9%E4%B8%80%E4%BA%9B%E4%BA%8B%E7%89%A9%E7%9A%84%E6%80%9D%E8%80%83/"/>
+    <category term="我对一些事物的思考" scheme="http://blog.eltaos.top/categories/%E6%88%91%E5%AF%B9%E4%B8%80%E4%BA%9B%E4%BA%8B%E7%89%A9%E7%9A%84%E6%80%9D%E8%80%83/"/>
     
     
-    <category term="学习" scheme="http://eltaos.top/tags/%E5%AD%A6%E4%B9%A0/"/>
+    <category term="学习" scheme="http://blog.eltaos.top/tags/%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="人性" scheme="http://eltaos.top/tags/%E4%BA%BA%E6%80%A7/"/>
+    <category term="人性" scheme="http://blog.eltaos.top/tags/%E4%BA%BA%E6%80%A7/"/>
     
-    <category term="冷漠" scheme="http://eltaos.top/tags/%E5%86%B7%E6%BC%A0/"/>
+    <category term="冷漠" scheme="http://blog.eltaos.top/tags/%E5%86%B7%E6%BC%A0/"/>
     
   </entry>
   
   <entry>
     <title>关于自私的思考</title>
-    <link href="http://eltaos.top/2022/7/"/>
-    <id>http://eltaos.top/2022/7/</id>
+    <link href="http://blog.eltaos.top/2022/7/"/>
+    <id>http://blog.eltaos.top/2022/7/</id>
     <published>2022-11-13T11:05:25.000Z</published>
     <updated>2023-09-27T02:52:18.918Z</updated>
     
@@ -499,14 +499,14 @@ $$&lt;br&gt;
     
     
     
-    <category term="我对一些事物的思考" scheme="http://eltaos.top/categories/%E6%88%91%E5%AF%B9%E4%B8%80%E4%BA%9B%E4%BA%8B%E7%89%A9%E7%9A%84%E6%80%9D%E8%80%83/"/>
+    <category term="我对一些事物的思考" scheme="http://blog.eltaos.top/categories/%E6%88%91%E5%AF%B9%E4%B8%80%E4%BA%9B%E4%BA%8B%E7%89%A9%E7%9A%84%E6%80%9D%E8%80%83/"/>
     
     
-    <category term="学习" scheme="http://eltaos.top/tags/%E5%AD%A6%E4%B9%A0/"/>
+    <category term="学习" scheme="http://blog.eltaos.top/tags/%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="人性" scheme="http://eltaos.top/tags/%E4%BA%BA%E6%80%A7/"/>
+    <category term="人性" scheme="http://blog.eltaos.top/tags/%E4%BA%BA%E6%80%A7/"/>
     
-    <category term="自私" scheme="http://eltaos.top/tags/%E8%87%AA%E7%A7%81/"/>
+    <category term="自私" scheme="http://blog.eltaos.top/tags/%E8%87%AA%E7%A7%81/"/>
     
   </entry>
   
