@@ -4,6 +4,44 @@
   
     
     <entry>
+      <title>floj-logs</title>
+      <link href="/2023/floj-logs/"/>
+      <url>/2023/floj-logs/</url>
+      
+        <content type="html"><![CDATA[<p>可能是非官方的 floj 更新日志。</p><hr><h1>2023.11.4前</h1><p>配置好基本功能。网站基本可以运作。外网暂不能访问。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> OI </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> FLOJ </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Simple-Algos-Notes</title>
+      <link href="/2023/Simple-Algos-Notes/"/>
+      <url>/2023/Simple-Algos-Notes/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Basic-Mathmatics-Notes</title>
       <link href="/2023/Basic-Mathmatics-Notes/"/>
       <url>/2023/Basic-Mathmatics-Notes/</url>
